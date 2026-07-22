@@ -46,3 +46,7 @@
 	path = architecture-diagram-generator
 	url = https://github.com/Cocoon-AI/architecture-diagram-generator.git
 	branch = main
+[submodule "ponytail"]
+	path = ponytail
+	url = https://github.com/DietrichGebert/ponytail.git
+	branch = main
