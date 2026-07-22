@@ -5,7 +5,11 @@
 ## 使用方式
 
 ```bash
+# 初次 clone
 git clone --recurse-submodules <repo-url>
+
+# 更新所有 submodule 到最新
+git submodule update --remote --merge
 ```
 
 ## Skills 列表
