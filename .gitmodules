@@ -50,3 +50,7 @@
 	path = ponytail
 	url = https://github.com/DietrichGebert/ponytail.git
 	branch = main
+[submodule "caveman"]
+	path = caveman
+	url = https://github.com/JuliusBrussee/caveman.git
+	branch = main
