@@ -6,3 +6,7 @@
 	path = llm-wiki-skill
 	url = https://github.com/sdyckjq-lab/llm-wiki-skill.git
 	branch = main
+[submodule "nuwa-skill"]
+	path = nuwa-skill
+	url = https://github.com/alchaincyf/nuwa-skill
+	branch = main
