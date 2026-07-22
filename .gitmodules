@@ -70,3 +70,7 @@
 	path = obsidian-skills
 	url = https://github.com/kepano/obsidian-skills
 	branch = main
+[submodule "prompt-engineering-expert"]
+	path = prompt-engineering-expert
+	url = https://github.com/TomsTools11/prompt-engineering-expert.git
+	branch = main
