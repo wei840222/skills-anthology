@@ -10,3 +10,7 @@
 	path = nuwa-skill
 	url = https://github.com/alchaincyf/nuwa-skill
 	branch = main
+[submodule "darwin-skill"]
+	path = darwin-skill
+	url = https://github.com/alchaincyf/darwin-skill
+	branch = master
