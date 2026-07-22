@@ -18,3 +18,7 @@
 	path = nopua
 	url = https://github.com/wuji-labs/nopua.git
 	branch = main
+[submodule "pua"]
+	path = pua
+	url = https://github.com/tanweai/pua.git
+	branch = main
