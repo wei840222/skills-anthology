@@ -26,3 +26,7 @@
 	path = huashu-design
 	url = https://github.com/alchaincyf/huashu-design.git
 	branch = master
+[submodule "agent-skills"]
+	path = agent-skills
+	url = https://github.com/addyosmani/agent-skills.git
+	branch = main
