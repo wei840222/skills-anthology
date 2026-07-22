@@ -30,3 +30,7 @@
 	path = agent-skills
 	url = https://github.com/addyosmani/agent-skills.git
 	branch = main
+[submodule "mattpocock-skills"]
+	path = mattpocock-skills
+	url = https://github.com/mattpocock/skills.git
+	branch = main
