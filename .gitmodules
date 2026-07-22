@@ -42,3 +42,7 @@
 	path = diagram-design
 	url = https://github.com/cathrynlavery/diagram-design.git
 	branch = main
+[submodule "architecture-diagram-generator"]
+	path = architecture-diagram-generator
+	url = https://github.com/Cocoon-AI/architecture-diagram-generator.git
+	branch = main
