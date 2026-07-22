@@ -54,3 +54,7 @@
 	path = caveman
 	url = https://github.com/JuliusBrussee/caveman.git
 	branch = main
+[submodule "fable-method"]
+	path = fable-method
+	url = https://github.com/Sahir619/fable-method.git
+	branch = main
