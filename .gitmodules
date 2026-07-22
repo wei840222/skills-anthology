@@ -1,0 +1,4 @@
+[submodule "clawic-skills"]
+	path = clawic-skills
+	url = https://github.com/clawic/skills.git
+	branch = main
