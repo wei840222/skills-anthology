@@ -62,3 +62,7 @@
 	path = speak-human-tw
 	url = https://github.com/Raymondhou0917/speak-human-tw.git
 	branch = master
+[submodule "book-to-skill"]
+	path = book-to-skill
+	url = https://github.com/virgiliojr94/book-to-skill
+	branch = master
