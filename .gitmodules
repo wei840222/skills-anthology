@@ -58,3 +58,7 @@
 	path = fable-method
 	url = https://github.com/Sahir619/fable-method.git
 	branch = main
+[submodule "speak-human-tw"]
+	path = speak-human-tw
+	url = https://github.com/Raymondhou0917/speak-human-tw.git
+	branch = master
