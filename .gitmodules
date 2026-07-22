@@ -2,3 +2,7 @@
 	path = clawic-skills
 	url = https://github.com/clawic/skills.git
 	branch = main
+[submodule "llm-wiki-skill"]
+	path = llm-wiki-skill
+	url = https://github.com/sdyckjq-lab/llm-wiki-skill.git
+	branch = main
