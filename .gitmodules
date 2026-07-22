@@ -66,3 +66,7 @@
 	path = book-to-skill
 	url = https://github.com/virgiliojr94/book-to-skill
 	branch = master
+[submodule "obsidian-skills"]
+	path = obsidian-skills
+	url = https://github.com/kepano/obsidian-skills
+	branch = main
