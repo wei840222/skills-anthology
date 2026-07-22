@@ -14,3 +14,7 @@
 	path = darwin-skill
 	url = https://github.com/alchaincyf/darwin-skill
 	branch = master
+[submodule "nopua"]
+	path = nopua
+	url = https://github.com/wuji-labs/nopua.git
+	branch = main
