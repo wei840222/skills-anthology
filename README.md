@@ -55,7 +55,7 @@ git submodule update --remote --merge
 | [book-to-skill](https://github.com/virgiliojr94/book-to-skill) | `book-to-skill` | 將技術書籍（PDF/EPUB/DOCX）轉為 on-demand agent 技能，節省 24–51× tokens |
 | [llm-wiki-skill](https://github.com/sdyckjq-lab/llm-wiki-skill) | `llm-wiki-skill` | 將碎片資訊轉為互連知識庫，含互動式離線知識圖譜（基於 Karpathy 的 llm-wiki 方法論） |
 | [obsidian-skills](https://github.com/kepano/obsidian-skills) | `obsidian-skills/skills` | kepano 的 Obsidian agent 技能：obsidian-markdown、obsidian-bases、json-canvas、obsidian-cli、defuddle |
-| [qmd](https://github.com/tobi/qmd) | `qmd/skills` | 搜尋與檢索本地 Markdown 知識庫、筆記、文件與 Wiki（支援 BM25 關鍵字、向量語意與 HyDE 查詢） |
+| [qmd](https://github.com/tobi/qmd) | `qmd/skills/qmd` | 搜尋與檢索本地 Markdown 知識庫、筆記、文件與 Wiki（支援 BM25 關鍵字、向量語意與 HyDE 查詢） |
 
 ### 🌐 領域專用
 
