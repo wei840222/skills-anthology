@@ -192,7 +192,9 @@ for item in "${SELECTED_SKILLS[@]}"; do
     SRC="$REPO_PWD/$sk_path"
     DEST="$TARGET_DIR/$sk_name"
     
-    ln -sf "$SRC" "$DEST"
+    # Remove existing link/file to prevent dereferencing into target directory
+    rm -rf "$DEST"
+    ln -sfn "$SRC" "$DEST"
     echo -e "  [${GREEN}✓${NC}] $sk_path ${CYAN}->$NC $DEST"
     SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
 done
