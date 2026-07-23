@@ -6,11 +6,28 @@
 
 ```bash
 # 初次 clone
-git clone --recurse-submodules <repo-url>
+git clone --recurse-submodules ssh://git@gitea.home-infra.weii.cloud/wei840222/skills.git
 
 # 更新所有 submodule 到最新
 git submodule update --remote --merge
+
+# 同步 / 建立技能軟連結 (互動式工具)
+./sync.sh
+
+# 亦可直接在參數中指定目標資料夾 (免去互動詢問)
+./sync.sh ~/.openclaw/external-skills
 ```
+
+### 🔗 技能軟連結工具 (`sync.sh`)
+
+本專案提供互動式腳本 `./sync.sh`，可自動解析 `README.md` 中的技能目錄並建立軟連結：
+
+1. **設定目標資料夾**：可直接在參數中傳入（如 `./sync.sh ~/.openclaw/external-skills`），或於執行時輸入自訂/預設目錄（`~/.hermes/external-skills`）。
+2. **選擇同步模式**：
+   - **全部同步**：一次建立所有技能的軟連結。
+   - **逐個選擇**：列出帶編號清單，支援單選、多選（如 `1 3 5`）與範圍選取（如 `1-10`）。
+3. **自動處理檔名衝突**：當不同來源包含同名技能時，自動加上前綴避免覆蓋。
+
 
 ## Skills 列表
 
