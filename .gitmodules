@@ -4,7 +4,7 @@
 	branch = main
 [submodule "llm-wiki-skill"]
 	path = llm-wiki-skill
-	url = https://github.com/sdyckjq-lab/llm-wiki-skill.git
+	url = https://github.com/lewislulu/llm-wiki-skill.git
 	branch = main
 [submodule "nuwa-skill"]
 	path = nuwa-skill
