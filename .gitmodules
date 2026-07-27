@@ -78,3 +78,7 @@
 	path = superpowers
 	url = https://github.com/obra/superpowers.git
 	branch = main
+[submodule "anysearch-skill"]
+	path = anysearch-skill
+	url = https://github.com/anysearch-ai/anysearch-skill.git
+	branch = main
