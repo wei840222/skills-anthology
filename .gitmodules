@@ -78,7 +78,3 @@
 	path = superpowers
 	url = https://github.com/obra/superpowers.git
 	branch = main
-[submodule "qmd"]
-	path = qmd
-	url = https://github.com/tobi/qmd.git
-	branch = main
