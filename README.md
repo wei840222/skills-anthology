@@ -81,8 +81,4 @@ git submodule update --remote --merge
 | [kubernetes-skill](https://github.com/LukasNiessen/kubernetes-skill) | `kubernetes-skill` | 生產級 Kubernetes 技能，以 failure-mode-first 工作流防止幻覺 |
 | [speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw) | `speak-human-tw` | 繁體中文（台灣）去 AI 味改寫器 — 偵測 35+ AI 寫作模式，修正中國用法，改寫成人類語氣 |
 
-### 📦 合集
 
-| Skill | 技能路徑 | 說明 |
-|-------|----------|------|
-| [clawic-skills](https://github.com/clawic/skills) | `clawic-skills/skills` | Clawic 的精選開源技能合集 — 分類整理的 SKILL.md 檔案庫 |

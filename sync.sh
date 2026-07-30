@@ -179,14 +179,13 @@ if [[ ! "$CONFIRM" =~ ^[Yy]$ ]]; then
 fi
 
 # ------------------------------------------------------------------------------
-# Install selected skills (symlink for most, copy+rewrite for clawic-skills)
+# Install selected skills (symlink)
 # ------------------------------------------------------------------------------
 echo ""
 echo -e "${BOLD}開始安裝技能...${NC}"
 
 SUCCESS_COUNT=0
 REPO_PWD="$(pwd)"
-REWRITE_SCRIPT="$REPO_PWD/rewrite-skill-paths.py"
 
 for item in "${SELECTED_SKILLS[@]}"; do
     IFS='|' read -r sk_path sk_name <<< "$item"
@@ -196,24 +195,9 @@ for item in "${SELECTED_SKILLS[@]}"; do
     # Remove existing link/file to prevent dereferencing into target directory
     rm -rf "$DEST"
     
-    # Special handling for clawic-skills: copy + path rewriting
-    if [[ "$sk_name" == "clawic-skills" ]]; then
-        # Copy instead of symlink to allow path rewriting without affecting source
-        cp -r "$SRC" "$DEST"
-        
-        # Rewrite paths in all markdown files (SKILL.md, setup.md, templates, etc.)
-        if [ -f "$REWRITE_SCRIPT" ]; then
-            find "$DEST" -name "*.md" -type f | while read -r md_file; do
-                python3 "$REWRITE_SCRIPT" "$md_file" 2>/dev/null || true
-            done
-        fi
-        
-        echo -e "  [${GREEN}✓${NC}] $sk_path ${CYAN}→${NC} $DEST ${YELLOW}(copied + paths rewritten)${NC}"
-    else
-        # Standard symlink installation for all other skills
-        ln -sfn "$SRC" "$DEST"
-        echo -e "  [${GREEN}✓${NC}] $sk_path ${CYAN}->${NC} $DEST"
-    fi
+    # Standard symlink installation for all skills
+    ln -sfn "$SRC" "$DEST"
+    echo -e "  [${GREEN}✓${NC}] $sk_path ${CYAN}->${NC} $DEST"
     
     SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
 done
