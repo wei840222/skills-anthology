@@ -94,7 +94,7 @@ EOF
 )
 
 # Convert JSON to Bash array of lines: "path|name"
-mapfile -t ALL_SKILLS < <(python3 -c "import json, sys; [print(f"{e['path']}|{e['name']}") for e in json.loads(sys.argv[1])]" "$SKILLS_JSON")
+mapfile -t ALL_SKILLS < <(python3 -c 'import json, sys; [print(e["path"] + "|" + e["name"]) for e in json.loads(sys.argv[1])]' "$SKILLS_JSON")
 
 TOTAL_SKILLS=${#ALL_SKILLS[@]}
 if [ "$TOTAL_SKILLS" -eq 0 ]; then
