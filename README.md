@@ -1,6 +1,6 @@
-# Skills Collection
+# Skill-Anthology
 
-蒐集 GitHub 上實用的 AI agent skills，以 git submodule 管理。
+嚴選與收錄 GitHub 上實用的 AI Agent Skills 精選輯，以 Git Submodules 進行典藏與管理。
 
 ## 使用方式
 
@@ -47,12 +47,25 @@ git submodule update --remote --merge
 | [architecture-diagram-generator](https://github.com/Cocoon-AI/architecture-diagram-generator) | `architecture-diagram-generator/architecture-diagram` | 將自然語言架構描述轉為暗色主題 HTML 圖表，支援 PNG/PDF 匯出 |
 | [diagram-design](https://github.com/cathrynlavery/diagram-design) | `diagram-design/skills/diagram-design` | 編輯級品質圖表（27 種類型），讀取你的網站來適配品牌風格 |
 | [huashu-design](https://github.com/alchaincyf/huashu-design) | `huashu-design` | 一句話出設計 — iOS 原型、HTML 簡報、動態圖形、資訊圖表、可編輯 PPTX |
+| [huashu-md-html](https://github.com/alchaincyf/huashu-md-html) | `huashu-md-html` | 花叔多向文件流水線 — 支援任意檔案（PDF/DOCX/PPTX/XLSX/URL）與 Markdown/HTML/出版級 DOCX 無損互轉與視覺設計 |
 
 ### 🧠 思考與方法論
 
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
 | [fable-method](https://github.com/Sahir619/fable-method) | `fable-method/skills` | Think/act/prove 工作流，源自 Claude Fable 5，含對抗性評估與 fable-judge 驗證器 |
+| [nuwa-skill](https://github.com/alchaincyf/nuwa-skill) | `nuwa-skill` | 將任何人的思維模型（Jobs、Musk、Munger、Feynman、Naval、PG 等）提煉為 agent 技能 |
+| [prompt-engineering-expert](https://github.com/TomsTools11/prompt-engineering-expert) | `prompt-engineering-expert` | 完整的 prompt 工程技能：分析、生成、自訂指令、進階技巧、排錯與評估框架 |
+
+### 🤖 Agent 最佳化
+
+| Skill | 技能路徑 | 說明 |
+|-------|----------|------|
+| [caveman](https://github.com/JuliusBrussee/caveman) | `caveman/skills` | 讓 AI 用原始人方式說話 — 同樣的答案，減少 ~65% output tokens |
+| [darwin-skill](https://github.com/alchaincyf/darwin-skill) | `darwin-skill` | 自主實驗迴圈最佳化 agent 技能，含 9 維評分、棘輪機制與 human-in-the-loop |
+| [freud-skill](https://github.com/alchaincyf/freud-skill) | `freud-skill` | 弗洛伊德 AI 認知調優系統 — 給 AI 做心理分析與認知治療，解決 Identity 衝突與 Prompt/Skill 深層毛病 |
+| [nopua](https://github.com/wuji-labs/nopua) | `nopua` | 反 PUA 技能 — 以信任取代恐懼驅動，benchmark 顯示比無技能多找 +104% 隱藏 bug |
+| [pua](https://github.com/tanweai/pua) | `pua/skills` | 用企業 PUA/PIP 話術（14 種風格：阿里、字節、Netflix、Musk、Jobs 等）逼迫 AI 窮盡所有方案 |��，源自 Claude Fable 5，含對抗性評估與 fable-judge 驗證器 |
 | [nuwa-skill](https://github.com/alchaincyf/nuwa-skill) | `nuwa-skill` | 將任何人的思維模型（Jobs、Musk、Munger、Feynman、Naval、PG 等）提煉為 agent 技能 |
 | [prompt-engineering-expert](https://github.com/TomsTools11/prompt-engineering-expert) | `prompt-engineering-expert` | 完整的 prompt 工程技能：分析、生成、自訂指令、進階技巧、排錯與評估框架 |
 
