@@ -78,3 +78,7 @@
 	path = anysearch-skill
 	url = https://github.com/anysearch-ai/anysearch-skill.git
 	branch = main
+[submodule "freud-skill"]
+	path = freud-skill
+	url = https://github.com/alchaincyf/freud-skill.git
+	branch = master
