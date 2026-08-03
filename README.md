@@ -6,7 +6,7 @@
 
 ```bash
 # 初次 clone
-git clone --recurse-submodules ssh://git@gitea.home-infra.weii.cloud/wei840222/skills-anthology.git
+git clone --recurse-submodules https://gitea.home-infra.weii.cloud/wei840222/skills-anthology.git
 
 # 更新所有 submodule 到最新
 git submodule update --remote --merge
