@@ -22,16 +22,21 @@ Each subdirectory at the project root is an independent git repository tracked a
 - **Directory naming:** When adding a submodule, the user provides the target directory name. If not provided, ask the user for the name before proceeding.
 - **Branch tracking:** Each submodule MUST track the upstream repo's default branch (typically `main`). Use `git submodule add -b main` when adding.
 - **Do not fork into this repo.** Keep skills as submodules — do not copy files directly.
+- **Update README.md & Check Duplicates:** Every newly added skill MUST be registered in `README.md` under the appropriate category table, and checked for any duplicate entries.
 
 ## Adding a New Skill
 
 When the user provides a GitHub URL:
 1. If a directory name is provided, use it as the submodule path.
 2. If no directory name is provided, **ask the user** for the desired directory name before running the command.
+3. **Update `README.md`**: Add the new skill to `README.md` under the appropriate category with its path and description, ensuring no duplicate entries exist.
 
 ```bash
 git submodule add -b main <github-repo-url> <directory-name>
 git commit -m "Add skill: <directory-name>"
+
+# Update README.md and commit the README update
+git commit -am "Update README.md with new skill: <directory-name>"
 ```
 
 ## Updating Skills
