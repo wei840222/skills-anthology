@@ -1,4 +1,4 @@
-# Skill-Anthology
+# Skills-Anthology
 
 整理 GitHub 上實用的 AI Agent Skill 精選集，全部以 Git Submodule 統一管理。
 
