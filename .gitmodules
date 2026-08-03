@@ -82,3 +82,7 @@
 	path = freud-skill
 	url = https://github.com/alchaincyf/freud-skill.git
 	branch = master
+[submodule "huashu-md-html"]
+	path = huashu-md-html
+	url = https://github.com/alchaincyf/huashu-md-html.git
+	branch = main
