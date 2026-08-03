@@ -34,14 +34,14 @@ echo ""
 # ------------------------------------------------------------------------------
 DEFAULT_TARGET="$HOME/.hermes/external-skills"
 
-echo -e "${BOLD}[步驟 1/2] 設定目標資料夾${NC}"
+echo -e "${BOLD}[Step 1/2] Configure Target Directory${NC}"
 
 if [ -n "$1" ]; then
     TARGET_INPUT="$1"
     TARGET_DIR="${TARGET_INPUT/#\~/$HOME}"
-    echo -e "  ${CYAN}(使用命令列參數指定之目標路徑)${NC}"
+    echo -e "  ${CYAN}(Using target path specified via CLI argument)${NC}"
 else
-    read -p "$(echo -e "請輸入目標資料夾路徑 [預設: ${YELLOW}$DEFAULT_TARGET${NC}]: ")" TARGET_INPUT
+    read -p "$(echo -e "Enter target directory path [Default: ${YELLOW}$DEFAULT_TARGET${NC}]: ")" TARGET_INPUT
 
     if [ -z "$TARGET_INPUT" ]; then
         TARGET_DIR="$DEFAULT_TARGET"
@@ -55,13 +55,13 @@ fi
 mkdir -p "$TARGET_DIR"
 TARGET_DIR="$(cd "$TARGET_DIR" && pwd)"
 
-echo -e "  ${GREEN}➜ 目標資料夾已設定為:${NC} ${BOLD}$TARGET_DIR${NC}"
+echo -e "  ${GREEN}➜ Target directory set to:${NC} ${BOLD}$TARGET_DIR${NC}"
 echo ""
 
 # ------------------------------------------------------------------------------
 # Parse README.md and extract skill directory paths
 # ------------------------------------------------------------------------------
-echo -e "正在解析 ${BOLD}README.md${NC} 提取技能目錄列表..."
+echo -e "Parsing ${BOLD}README.md${NC} to extract skill directory list..."
 
 SKILLS_JSON=$(python3 - <<'EOF'
 import re, os, json, sys
@@ -94,24 +94,24 @@ EOF
 )
 
 # Convert JSON to Bash array of lines: "path|name"
-mapfile -t ALL_SKILLS < <(python3 -c "import json, sys; [print(f\"{e['path']}|{e['name']}\") for e in json.loads(sys.argv[1])]" "$SKILLS_JSON")
+mapfile -t ALL_SKILLS < <(python3 -c "import json, sys; [print(f"{e['path']}|{e['name']}") for e in json.loads(sys.argv[1])]" "$SKILLS_JSON")
 
 TOTAL_SKILLS=${#ALL_SKILLS[@]}
 if [ "$TOTAL_SKILLS" -eq 0 ]; then
-    echo -e "${RED}未在 README.md 找到任何有效的技能目錄！${NC}"
+    echo -e "${RED}No valid skill directories found in README.md!${NC}"
     exit 1
 fi
 
-echo -e "  ${GREEN}➜ 成功解析到 $TOTAL_SKILLS 個技能目錄項目。${NC}"
+echo -e "  ${GREEN}➜ Successfully parsed $TOTAL_SKILLS skill directory entries.${NC}"
 echo ""
 
 # ------------------------------------------------------------------------------
 # Step 2: Prompt user for sync mode (All vs Selective)
 # ------------------------------------------------------------------------------
-echo -e "${BOLD}[步驟 2/2] 請選擇同步模式${NC}"
-echo "  1) 全部同步 (共 $TOTAL_SKILLS 個技能目錄)"
-echo "  2) 逐個選擇 / 挑選清單"
-read -p "$(echo -e "請選擇 [${YELLOW}1${NC}/2] (預設: 1): ")" MODE_CHOICE
+echo -e "${BOLD}[Step 2/2] Select Synchronization Mode${NC}"
+echo "  1) Sync all ($TOTAL_SKILLS skill directories)"
+echo "  2) Selectively pick from list"
+read -p "$(echo -e "Select option [${YELLOW}1${NC}/2] (Default: 1): ")" MODE_CHOICE
 MODE_CHOICE=${MODE_CHOICE:-1}
 
 SELECTED_SKILLS=()
@@ -120,15 +120,15 @@ if [ "$MODE_CHOICE" -eq 1 ]; then
     SELECTED_SKILLS=("${ALL_SKILLS[@]}")
 elif [ "$MODE_CHOICE" -eq 2 ]; then
     echo ""
-    echo -e "${CYAN}${BOLD}------------------- 可用技能目錄清單 -------------------${NC}"
+    echo -e "${CYAN}${BOLD}------------------- Available Skill Directories -------------------${NC}"
     for i in "${!ALL_SKILLS[@]}"; do
         idx=$((i + 1))
         IFS='|' read -r sk_path sk_name <<< "${ALL_SKILLS[$i]}"
         printf "  [${YELLOW}%2d${NC}] %-55s -> %s\n" "$idx" "$sk_path" "$sk_name"
     done
-    echo -e "${CYAN}${BOLD}--------------------------------------------------------${NC}"
-    echo -e "提示: 可輸入空格/逗號分隔的編號 (如: ${YELLOW}1 3 5${NC})、範圍 (如: ${YELLOW}1-10${NC})、或輸入 ${YELLOW}all${NC} 選取全部。"
-    read -p "請輸入欲同步的技能目錄編號: " SELECTION_INPUT
+    echo -e "${CYAN}${BOLD}------------------------------------------------------------------${NC}"
+    echo -e "Hint: Enter space/comma separated numbers (e.g. ${YELLOW}1 3 5${NC}), ranges (e.g. ${YELLOW}1-10${NC}), or ${YELLOW}all${NC} to select all."
+    read -p "Enter skill numbers to sync: " SELECTION_INPUT
 
     if [ "$SELECTION_INPUT" = "all" ]; then
         SELECTED_SKILLS=("${ALL_SKILLS[@]}")
@@ -155,7 +155,7 @@ elif [ "$MODE_CHOICE" -eq 2 ]; then
         done
     fi
 else
-    echo -e "${RED}無效選項，取消操作。${NC}"
+    echo -e "${RED}Invalid option, operation cancelled.${NC}"
     exit 1
 fi
 
@@ -164,17 +164,17 @@ mapfile -t SELECTED_SKILLS < <(printf "%s\n" "${SELECTED_SKILLS[@]}" | sort -u)
 
 SELECTED_COUNT=${#SELECTED_SKILLS[@]}
 if [ "$SELECTED_COUNT" -eq 0 ]; then
-    echo -e "${YELLOW}未選擇任何技能目錄，終止操作。${NC}"
+    echo -e "${YELLOW}No skill directories selected. Aborting.${NC}"
     exit 0
 fi
 
 echo ""
-echo -e "即將將 ${BOLD}$SELECTED_COUNT${NC} 個技能目錄建立軟連結至 ${BOLD}$TARGET_DIR${NC} ..."
-read -p "$(echo -e "確認執行？ [${GREEN}Y${NC}/n]: ")" CONFIRM
+echo -e "Creating symlinks for ${BOLD}$SELECTED_COUNT${NC} skill directory(ies) to ${BOLD}$TARGET_DIR${NC} ..."
+read -p "$(echo -e "Proceed? [${GREEN}Y${NC}/n]: ")" CONFIRM
 CONFIRM=${CONFIRM:-Y}
 
 if [[ ! "$CONFIRM" =~ ^[Yy]$ ]]; then
-    echo -e "${YELLOW}已取消操作。${NC}"
+    echo -e "${YELLOW}Operation cancelled.${NC}"
     exit 0
 fi
 
@@ -182,7 +182,7 @@ fi
 # Install selected skills (symlink)
 # ------------------------------------------------------------------------------
 echo ""
-echo -e "${BOLD}開始安裝技能...${NC}"
+echo -e "${BOLD}Installing skills...${NC}"
 
 SUCCESS_COUNT=0
 REPO_PWD="$(pwd)"
@@ -204,5 +204,5 @@ done
 
 echo ""
 echo -e "${GREEN}${BOLD}====================================================${NC}"
-echo -e "${GREEN}${BOLD}  同步完成！共成功建立/更新 $SUCCESS_COUNT 個技能目錄軟連結。 ${NC}"
+echo -e "${GREEN}${BOLD}  Sync complete! Successfully created/updated $SUCCESS_COUNT skill symlinks. ${NC}"
 echo -e "${GREEN}${BOLD}====================================================${NC}"
