@@ -1,6 +1,6 @@
 # Skill-Anthology
 
-嚴選與收錄 GitHub 上實用的 AI Agent Skills 精選輯，以 Git Submodules 進行典藏與管理。
+整理 GitHub 上實用的 AI Agent Skill 精選集，全部以 Git Submodule 統一管理。
 
 ## 使用方式
 
@@ -20,7 +20,7 @@ git submodule update --remote --merge
 
 ### 🔗 技能軟連結工具 (`sync.sh`)
 
-本專案提供互動式腳本 `./sync.sh`，可自動解析 `README.md` 中的技能目錄並建立軟連結：
+使用 `./sync.sh` 互動腳本，自動讀取 `README.md` 中的技能目錄並建立軟連結：
 
 1. **設定目標資料夾**：可直接在參數中傳入（如 `./sync.sh ~/.openclaw/external-skills`），或於執行時輸入自訂/預設目錄（`~/.hermes/external-skills`）。
 2. **選擇同步模式**：
@@ -36,9 +36,9 @@ git submodule update --remote --merge
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
 | [agent-skills](https://github.com/addyosmani/agent-skills) | `agent-skills/skills` | Addy Osmani 的 24 個生產級工程技能，涵蓋完整開發生命週期（spec/plan/build/test/review/ship） |
-| [mattpocock-skills](https://github.com/mattpocock/skills) | `mattpocock-skills/skills` | Matt Pocock 的「Skills For Real Engineers」— 可組合的小型技能（grill-me、TDD、domain modeling、code review、wayfinder） |
-| [ponytail](https://github.com/DietrichGebert/ponytail) | `ponytail/skills` | 懶惰資深工程師技能 — 少寫 ~54% 程式碼，保留所有安全防護，使用 YAGNI 階梯（native > stdlib > dep > one line > minimum） |
-| [superpowers](https://github.com/obra/superpowers) | `superpowers/skills` | Prime Radiant 的 AI Agent 完整開發方法論 — 包含 TDD、系統化排錯、腦力激盪、計畫撰寫與子 Agent 驅動開發等 14 個技能 |
+| [mattpocock-skills](https://github.com/mattpocock/skills) | `mattpocock-skills/skills` | Matt Pocock 的「Skills For Real Engineers」—— 可組合的小型技能（grill-me、TDD、domain modeling、code review、wayfinder） |
+| [ponytail](https://github.com/DietrichGebert/ponytail) | `ponytail/skills` | 懶惰資深工程師技能 —— 少寫 ~54% 程式碼，保留所有安全防護，使用 YAGNI 階梯（native > stdlib > dep > one line > minimum） |
+| [superpowers](https://github.com/obra/superpowers) | `superpowers/skills` | Prime Radiant 的 AI Agent 完整開發方法論 —— 包含 TDD、系統化排錯、腦力激盪、計畫撰寫與子 Agent 驅動開發等 14 個技能 |
 
 ### 🎨 設計與圖表
 
@@ -46,8 +46,8 @@ git submodule update --remote --merge
 |-------|----------|------|
 | [architecture-diagram-generator](https://github.com/Cocoon-AI/architecture-diagram-generator) | `architecture-diagram-generator/architecture-diagram` | 將自然語言架構描述轉為暗色主題 HTML 圖表，支援 PNG/PDF 匯出 |
 | [diagram-design](https://github.com/cathrynlavery/diagram-design) | `diagram-design/skills/diagram-design` | 編輯級品質圖表（27 種類型），讀取你的網站來適配品牌風格 |
-| [huashu-design](https://github.com/alchaincyf/huashu-design) | `huashu-design` | 一句話出設計 — iOS 原型、HTML 簡報、動態圖形、資訊圖表、可編輯 PPTX |
-| [huashu-md-html](https://github.com/alchaincyf/huashu-md-html) | `huashu-md-html` | 花叔多向文件流水線 — 支援任意檔案（PDF/DOCX/PPTX/XLSX/URL）與 Markdown/HTML/出版級 DOCX 無損互轉與視覺設計 |
+| [huashu-design](https://github.com/alchaincyf/huashu-design) | `huashu-design` | 一句話出設計 —— iOS 原型、HTML 簡報、動態圖形、資訊圖表、可編輯 PPTX |
+| [huashu-md-html](https://github.com/alchaincyf/huashu-md-html) | `huashu-md-html` | 花叔多向文件流水線 —— 支援任意檔案（PDF/DOCX/PPTX/XLSX/URL）與 Markdown/HTML/出版級 DOCX 無損互轉與視覺設計 |
 
 ### 🧠 思考與方法論
 
@@ -61,10 +61,10 @@ git submodule update --remote --merge
 
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
-| [caveman](https://github.com/JuliusBrussee/caveman) | `caveman/skills` | 讓 AI 用原始人方式說話 — 同樣的答案，減少 ~65% output tokens |
+| [caveman](https://github.com/JuliusBrussee/caveman) | `caveman/skills` | 讓 AI 用原始人方式說話 —— 同樣的答案，減少 ~65% output tokens |
 | [darwin-skill](https://github.com/alchaincyf/darwin-skill) | `darwin-skill` | 自主實驗迴圈最佳化 agent 技能，含 9 維評分、棘輪機制與 human-in-the-loop |
-| [freud-skill](https://github.com/alchaincyf/freud-skill) | `freud-skill` | 弗洛伊德 AI 認知調優系統 — 給 AI 做心理分析與認知治療，解決 Identity 衝突與 Prompt/Skill 深層毛病 |
-| [nopua](https://github.com/wuji-labs/nopua) | `nopua` | 反 PUA 技能 — 以信任取代恐懼驅動，benchmark 顯示比無技能多找 +104% 隱藏 bug |
+| [freud-skill](https://github.com/alchaincyf/freud-skill) | `freud-skill` | 弗洛伊德 AI 認知調優系統 —— 給 AI 做心理分析與認知治療，解決 Identity 衝突與 Prompt/Skill 深層毛病 |
+| [nopua](https://github.com/wuji-labs/nopua) | `nopua` | 反 PUA 技能 —— 以信任取代恐懼驅動，benchmark 顯示比無技能多找 +104% 隱藏 bug |
 | [pua](https://github.com/tanweai/pua) | `pua/skills` | 用企業 PUA/PIP 話術（14 種風格：阿里、字節、Netflix、Musk、Jobs 等）逼迫 AI 窮盡所有方案 |
 
 ### 📚 知識管理
@@ -72,13 +72,13 @@ git submodule update --remote --merge
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
 | [book-to-skill](https://github.com/virgiliojr94/book-to-skill) | `book-to-skill` | 將技術書籍（PDF/EPUB/DOCX）轉為 on-demand agent 技能，節省 24–51× tokens |
-| [llm-wiki-skill](https://github.com/lewislulu/llm-wiki-skill) | `llm-wiki-skill/llm-wiki` | 構建與維護 Karpathy 風格的 LLM Markdown 知識庫（編譯原始資料、語意交叉連結、健康檢查與 Obsidian/Web 審計反饋） |
+| [llm-wiki-skill](https://github.com/lewislulu/llm-wiki-skill) | `llm-wiki-skill/llm-wiki` | 建立與維護 Karpathy 風格的 LLM Markdown 知識庫（編譯原始資料、語意交叉連結、健康檢查與 Obsidian/Web 審計反饋） |
 | [obsidian-skills](https://github.com/kepano/obsidian-skills) | `obsidian-skills/skills` | kepano 的 Obsidian agent 技能：obsidian-markdown、obsidian-bases、json-canvas、obsidian-cli·defuddle |
-| [anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | `anysearch-skill` | 統一即時搜尋引擎技能 — 支援通用網路搜尋、垂直領域搜尋、平行批次搜尋與完整網頁內容擷取 |
+| [anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | `anysearch-skill` | 統一即時搜尋引擎技能 —— 支援通用網路搜尋、垂直領域搜尋、平行批次搜尋與完整網頁內容擷取 |
 
 ### 🌐 領域專用
 
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
 | [kubernetes-skill](https://github.com/LukasNiessen/kubernetes-skill) | `kubernetes-skill` | 生產級 Kubernetes 技能，以 failure-mode-first 工作流防止幻覺 |
-| [speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw) | `speak-human-tw` | 繁體中文（台灣）去 AI 味改寫器 — 偵測 35+ AI 寫作模式，修正中國用法，改寫成人類語氣 |
+| [speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw) | `speak-human-tw` | 繁體中文（台灣）去 AI 味改寫器 —— 偵測 35+ AI 寫作模式，修正中國用法，改寫成人類語氣 |
