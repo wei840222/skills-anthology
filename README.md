@@ -29,7 +29,7 @@ git submodule update --remote --merge
 3. **自動處理檔名衝突**：當不同來源包含同名技能時，自動加上前綴避免覆蓋。
 
 
-## Skills 列表
+## Skills 列表 (共 22 個精選技能)
 
 ### 🛠 工程與開發
 
@@ -65,17 +65,6 @@ git submodule update --remote --merge
 | [darwin-skill](https://github.com/alchaincyf/darwin-skill) | `darwin-skill` | 自主實驗迴圈最佳化 agent 技能，含 9 維評分、棘輪機制與 human-in-the-loop |
 | [freud-skill](https://github.com/alchaincyf/freud-skill) | `freud-skill` | 弗洛伊德 AI 認知調優系統 — 給 AI 做心理分析與認知治療，解決 Identity 衝突與 Prompt/Skill 深層毛病 |
 | [nopua](https://github.com/wuji-labs/nopua) | `nopua` | 反 PUA 技能 — 以信任取代恐懼驅動，benchmark 顯示比無技能多找 +104% 隱藏 bug |
-| [pua](https://github.com/tanweai/pua) | `pua/skills` | 用企業 PUA/PIP 話術（14 種風格：阿里、字節、Netflix、Musk、Jobs 等）逼迫 AI 窮盡所有方案 |��，源自 Claude Fable 5，含對抗性評估與 fable-judge 驗證器 |
-| [nuwa-skill](https://github.com/alchaincyf/nuwa-skill) | `nuwa-skill` | 將任何人的思維模型（Jobs、Musk、Munger、Feynman、Naval、PG 等）提煉為 agent 技能 |
-| [prompt-engineering-expert](https://github.com/TomsTools11/prompt-engineering-expert) | `prompt-engineering-expert` | 完整的 prompt 工程技能：分析、生成、自訂指令、進階技巧、排錯與評估框架 |
-
-### 🤖 Agent 最佳化
-
-| Skill | 技能路徑 | 說明 |
-|-------|----------|------|
-| [caveman](https://github.com/JuliusBrussee/caveman) | `caveman/skills` | 讓 AI 用原始人方式說話 — 同樣的答案，減少 ~65% output tokens |
-| [darwin-skill](https://github.com/alchaincyf/darwin-skill) | `darwin-skill` | 自主實驗迴圈最佳化 agent 技能，含 9 維評分、棘輪機制與 human-in-the-loop |
-| [nopua](https://github.com/wuji-labs/nopua) | `nopua` | 反 PUA 技能 — 以信任取代恐懼驅動，benchmark 顯示比無技能多找 +104% 隱藏 bug |
 | [pua](https://github.com/tanweai/pua) | `pua/skills` | 用企業 PUA/PIP 話術（14 種風格：阿里、字節、Netflix、Musk、Jobs 等）逼迫 AI 窮盡所有方案 |
 
 ### 📚 知識管理
@@ -84,7 +73,7 @@ git submodule update --remote --merge
 |-------|----------|------|
 | [book-to-skill](https://github.com/virgiliojr94/book-to-skill) | `book-to-skill` | 將技術書籍（PDF/EPUB/DOCX）轉為 on-demand agent 技能，節省 24–51× tokens |
 | [llm-wiki-skill](https://github.com/lewislulu/llm-wiki-skill) | `llm-wiki-skill/llm-wiki` | 構建與維護 Karpathy 風格的 LLM Markdown 知識庫（編譯原始資料、語意交叉連結、健康檢查與 Obsidian/Web 審計反饋） |
-| [obsidian-skills](https://github.com/kepano/obsidian-skills) | `obsidian-skills/skills` | kepano 的 Obsidian agent 技能：obsidian-markdown、obsidian-bases、json-canvas、obsidian-cli、defuddle |
+| [obsidian-skills](https://github.com/kepano/obsidian-skills) | `obsidian-skills/skills` | kepano 的 Obsidian agent 技能：obsidian-markdown、obsidian-bases、json-canvas、obsidian-cli·defuddle |
 | [anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | `anysearch-skill` | 統一即時搜尋引擎技能 — 支援通用網路搜尋、垂直領域搜尋、平行批次搜尋與完整網頁內容擷取 |
 
 ### 🌐 領域專用
@@ -93,5 +82,3 @@ git submodule update --remote --merge
 |-------|----------|------|
 | [kubernetes-skill](https://github.com/LukasNiessen/kubernetes-skill) | `kubernetes-skill` | 生產級 Kubernetes 技能，以 failure-mode-first 工作流防止幻覺 |
 | [speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw) | `speak-human-tw` | 繁體中文（台灣）去 AI 味改寫器 — 偵測 35+ AI 寫作模式，修正中國用法，改寫成人類語氣 |
-
-
