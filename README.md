@@ -70,9 +70,9 @@ git submodule update --remote --merge
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
 | [book-to-skill](https://github.com/virgiliojr94/book-to-skill) | `book-to-skill` | 將技術書籍（PDF/EPUB/DOCX）轉為 on-demand agent 技能，節省 24–51× tokens |
-| [llm-wiki-skill](https://github.com/sdyckjq-lab/llm-wiki-skill) | `llm-wiki-skill` | 將碎片資訊轉為互連知識庫，含互動式離線知識圖譜（基於 Karpathy 的 llm-wiki 方法論） |
+| [llm-wiki-skill](https://github.com/lewislulu/llm-wiki-skill) | `llm-wiki-skill/llm-wiki` | 構建與維護 Karpathy 風格的 LLM Markdown 知識庫（編譯原始資料、語意交叉連結、健康檢查與 Obsidian/Web 審計反饋） |
 | [obsidian-skills](https://github.com/kepano/obsidian-skills) | `obsidian-skills/skills` | kepano 的 Obsidian agent 技能：obsidian-markdown、obsidian-bases、json-canvas、obsidian-cli、defuddle |
-| [qmd](https://github.com/tobi/qmd) | `qmd/skills/qmd` | 搜尋與檢索本地 Markdown 知識庫、筆記、文件與 Wiki（支援 BM25 關鍵字、向量語意與 HyDE 查詢） |
+| [anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | `anysearch-skill` | 統一即時搜尋引擎技能 — 支援通用網路搜尋、垂直領域搜尋、平行批次搜尋與完整網頁內容擷取 |
 
 ### 🌐 領域專用
 
