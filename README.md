@@ -22,7 +22,7 @@ git submodule update --remote --merge
 
 使用 `./sync.sh` 互動腳本，自動讀取 `README.md` 中的技能目錄並建立軟連結：
 
-1. **設定目標資料夾**：可直接在參數中傳入（如 `./sync.sh ~/.openclaw/external-skills`），或於執行時輸入自訂/預設目錄（`~/.hermes/external-skills`）。
+1. **設定目標資料夾**：可直接在參數中傳入（如 `./sync.sh ~/.openclaw/external-skills`），或於執行時輸入自訂/預設目錄（`~/.openclaw/external-skills`）。
 2. **選擇同步模式**：
    - **全部同步**：一次建立所有技能的軟連結。
    - **逐個選擇**：列出帶編號清單，支援單選、多選（如 `1 3 5`）與範圍選取（如 `1-10`）。

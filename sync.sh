@@ -32,7 +32,7 @@ echo ""
 # ------------------------------------------------------------------------------
 # Step 1: Target directory resolution (CLI argument or interactive prompt)
 # ------------------------------------------------------------------------------
-DEFAULT_TARGET="$HOME/.hermes/external-skills"
+DEFAULT_TARGET="$HOME/.openclaw/external-skills"
 
 echo -e "${BOLD}[Step 1/2] Configure Target Directory${NC}"
 
