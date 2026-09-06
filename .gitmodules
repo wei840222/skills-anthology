@@ -86,3 +86,7 @@
 	path = huashu-md-html
 	url = https://github.com/alchaincyf/huashu-md-html.git
 	branch = main
+[submodule "buddhist-method"]
+	path = buddhist-method
+	url = https://github.com/nai0om/buddhist-method
+	branch = main
