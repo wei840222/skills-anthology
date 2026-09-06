@@ -12,23 +12,23 @@ git clone --recurse-submodules https://github.com/wei840222/skills-anthology.git
 git submodule update --remote --merge
 
 # 同步 / 建立技能軟連結 (互動式工具)
-./sync.sh
+./sync.py
 
 # 亦可直接在參數中指定目標資料夾 (免去互動詢問)
-./sync.sh ~/.openclaw/external-skills
+./sync.py ~/.openclaw/external-skills
 ```
 
-### 🔗 技能軟連結工具 (`sync.sh` / `sync.py`)
+### 🔗 技能軟連結工具 (`sync.py`)
 
-使用 `./sync.sh` (或 `./sync.py`) 互動工具，自動讀取 `README.md` 中的技能目錄並建立軟連結：
+使用 `./sync.py` 互動工具，自動讀取 `README.md` 中的技能目錄並建立軟連結：
 
-1. **設定目標資料夾**：可直接在參數中傳入（如 `./sync.sh ~/.openclaw/external-skills`），或於執行時輸入自訂/預設目錄（`~/.openclaw/external-skills`）。
+1. **設定目標資料夾**：可直接在參數中傳入（如 `./sync.py ~/.openclaw/external-skills`），或於執行時輸入自訂/預設目錄（`~/.openclaw/external-skills`）。
 2. **選擇同步模式**：
    - **全部同步**：一次建立所有技能的軟連結。
    - **互動式勾選清單**：支援終端互動 TUI，使用 `↑` / `↓`（或 `j` / `k`）移動、`Space 空白鍵` 自由勾選/取消、`a` 全選/全取消、`i` 反向選取、`Enter` 確認同步。
 3. **快捷參數**：
-   - `./sync.sh -a` 或 `./sync.py -a`：直接全部同步（略過詢問）。
-   - `./sync.sh -i` 或 `./sync.py -i`：直接開啟空白鍵勾選清單。
+   - `./sync.py -a`：直接全部同步（略過詢問）。
+   - `./sync.py -i`：直接開啟空白鍵勾選清單。
 
 
 ## Skills 列表 (共 24 個精選技能)

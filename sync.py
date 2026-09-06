@@ -304,16 +304,15 @@ def run_sync():
             force_interactive = True
         elif arg in ('-h', '--help'):
             print(f"{BOLD}使用方式:{RESET}")
-            print(f"  ./sync.sh [目標目錄] [選項]")
             print(f"  ./sync.py [目標目錄] [選項]")
             print(f"\n{BOLD}選項:{RESET}")
             print(f"  -a, --all          直接同步所有技能，不詢問")
             print(f"  -i, --interactive  直接進入空白鍵勾選清單")
             print(f"  -h, --help         顯示說明訊息")
             print(f"\n{BOLD}範例:{RESET}")
-            print(f"  ./sync.sh")
-            print(f"  ./sync.sh ~/.openclaw/external-skills")
-            print(f"  ./sync.sh ~/.openclaw/external-skills -i")
+            print(f"  ./sync.py")
+            print(f"  ./sync.py ~/.openclaw/external-skills")
+            print(f"  ./sync.py ~/.openclaw/external-skills -i")
             sys.exit(0)
         elif not arg.startswith('-'):
             cli_target = arg
