@@ -29,13 +29,14 @@ git submodule update --remote --merge
 3. **自動處理檔名衝突**：當不同來源包含同名技能時，自動加上前綴避免覆蓋。
 
 
-## Skills 列表 (共 22 個精選技能)
+## Skills 列表 (共 24 個精選技能)
 
 ### 🛠 工程與開發
 
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
 | [agent-skills](https://github.com/addyosmani/agent-skills) | `agent-skills/skills` | Addy Osmani 的 24 個生產級工程技能，涵蓋完整開發生命週期（spec/plan/build/test/review/ship） |
+| [go-modern-guidelines](https://github.com/JetBrains/go-modern-guidelines) | `go-modern-guidelines/plugin/skills/use-modern-go` | JetBrains 官方現代 Go 語言指南技能 —— 根據專案 Go 版本引導 Agent 撰寫符合 Go 1.0~1.27 最新慣用語法與標準庫特性的現代化程式碼 |
 | [mattpocock-skills](https://github.com/mattpocock/skills) | `mattpocock-skills/skills` | Matt Pocock 的「Skills For Real Engineers」—— 可組合的小型技能（grill-me、TDD、domain modeling、code review、wayfinder） |
 | [ponytail](https://github.com/DietrichGebert/ponytail) | `ponytail/skills` | 懶惰資深工程師技能 —— 少寫 ~54% 程式碼，保留所有安全防護，使用 YAGNI 階梯（native > stdlib > dep > one line > minimum） |
 | [superpowers](https://github.com/obra/superpowers) | `superpowers/skills` | Prime Radiant 的 AI Agent 完整開發方法論 —— 包含 TDD、系統化排錯、腦力激盪、計畫撰寫與子 Agent 驅動開發等 14 個技能 |
@@ -53,6 +54,7 @@ git submodule update --remote --merge
 
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
+| [buddhist-method](https://github.com/nai0om/buddhist-method) | `buddhist-method` | 六大佛教認知與決策原則轉化為 Agent 工作準則 —— 防範幻覺、根因分析（Yoniso Manasikāra）、捨棄錯誤草稿（無我）、真實修復而非規避（斷除）與抗壓沉著（捨心） |
 | [fable-method](https://github.com/Sahir619/fable-method) | `fable-method/skills` | Think/act/prove 工作流，源自 Claude Fable 5，含對抗性評估與 fable-judge 驗證器 |
 | [nuwa-skill](https://github.com/alchaincyf/nuwa-skill) | `nuwa-skill` | 將任何人的思維模型（Jobs、Musk、Munger、Feynman、Naval、PG 等）提煉為 agent 技能 |
 | [prompt-engineering-expert](https://github.com/TomsTools11/prompt-engineering-expert) | `prompt-engineering-expert` | 完整的 prompt 工程技能：分析、生成、自訂指令、進階技巧、排錯與評估框架 |
