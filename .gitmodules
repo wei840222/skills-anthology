@@ -90,3 +90,7 @@
 	path = buddhist-method
 	url = https://github.com/nai0om/buddhist-method
 	branch = main
+[submodule "go-modern-guidelines"]
+	path = go-modern-guidelines
+	url = https://github.com/JetBrains/go-modern-guidelines
+	branch = main
