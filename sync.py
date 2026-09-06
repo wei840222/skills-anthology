@@ -106,22 +106,47 @@ def parse_readme(repo_root):
     return skills
 
 def read_key(fd):
-    """Read a single keypress or ANSI escape sequence from stdin."""
-    ch = sys.stdin.read(1)
-    if ch == '\x1b':
-        # Check if there are following characters
-        r, _, _ = select.select([sys.stdin], [], [], 0.05)
+    """Read a single keypress or ANSI escape sequence from stdin file descriptor."""
+    try:
+        raw = os.read(fd, 32)
+    except Exception:
+        return 'q'
+
+    if not raw:
+        return 'q'
+
+    # If starts with ESC (\x1b) and only 1 byte, check if more bytes are in flight
+    if raw == b'\x1b':
+        r, _, _ = select.select([fd], [], [], 0.05)
         if r:
-            ch2 = sys.stdin.read(1)
-            if ch2 in ('[', 'O'):
-                ch3 = sys.stdin.read(1)
-                if ch3 in ('1', '2', '3', '4', '5', '6', '7', '8'):
-                    ch4 = sys.stdin.read(1)  # e.g. ~
-                    return '\x1b' + ch2 + ch3 + ch4
-                return '\x1b' + ch2 + ch3
-            return '\x1b' + ch2
+            try:
+                raw += os.read(fd, 32)
+            except Exception:
+                pass
+
+    decoded = raw.decode('utf-8', errors='ignore')
+
+    # Normalize arrow keys and navigation keys
+    if decoded in ('\x1b[A', '\x1bOA'):
+        return 'UP'
+    elif decoded in ('\x1b[B', '\x1bOB'):
+        return 'DOWN'
+    elif decoded in ('\x1b[C', '\x1bOC'):
+        return 'RIGHT'
+    elif decoded in ('\x1b[D', '\x1bOD'):
+        return 'LEFT'
+    elif decoded in ('\x1b[5~',):
+        return 'PAGE_UP'
+    elif decoded in ('\x1b[6~',):
+        return 'PAGE_DOWN'
+    elif decoded in ('\x1b[H', '\x1b[1~'):
+        return 'HOME'
+    elif decoded in ('\x1b[F', '\x1b[4~'):
+        return 'END'
+    elif decoded == '\x1b':
         return 'ESC'
-    return ch
+
+    return decoded
 
 def interactive_checkbox_selector(skills):
     """
@@ -146,6 +171,7 @@ def interactive_checkbox_selector(skills):
 
     try:
         tty.setraw(fd)
+        termios.tcflush(fd, termios.TCIFLUSH)
 
         while True:
             # Determine terminal dimensions
@@ -266,17 +292,17 @@ def interactive_checkbox_selector(skills):
                     selected_indices = set(range(len(skills)))
             elif key in ('i', 'I'):  # Invert selection
                 selected_indices = set(range(len(skills))) - selected_indices
-            elif key in ('\x1b[A', '\x1bOA', 'k', 'K'):  # Up arrow
+            elif key in ('UP', 'k', 'K'):  # Up arrow
                 cursor_idx = (cursor_idx - 1) % len(skills)
-            elif key in ('\x1b[B', '\x1bOB', 'j', 'J'):  # Down arrow
+            elif key in ('DOWN', 'j', 'J'):  # Down arrow
                 cursor_idx = (cursor_idx + 1) % len(skills)
-            elif key in ('\x1b[5~',):  # Page Up
+            elif key == 'PAGE_UP':  # Page Up
                 cursor_idx = max(0, cursor_idx - viewport_size)
-            elif key in ('\x1b[6~',):  # Page Down
+            elif key == 'PAGE_DOWN':  # Page Down
                 cursor_idx = min(len(skills) - 1, cursor_idx + viewport_size)
-            elif key in ('\x1b[H', '\x1b[1~'):  # Home
+            elif key == 'HOME':  # Home
                 cursor_idx = 0
-            elif key in ('\x1b[F', '\x1b[4~'):  # End
+            elif key == 'END':  # End
                 cursor_idx = len(skills) - 1
 
     finally:
