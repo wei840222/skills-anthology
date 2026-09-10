@@ -30,7 +30,7 @@ ALT_SCREEN_ON = '\033[?1049h'
 ALT_SCREEN_OFF = '\033[?1049l'
 CLEAR_SCREEN = '\033[H\033[2J'
 
-DEFAULT_TARGET = os.path.expanduser("~/.openclaw/external-skills")
+DEFAULT_TARGET = os.path.expanduser("~/.openclaw/skills")
 
 def get_char_width(ch):
     """Return terminal column width of a character."""
