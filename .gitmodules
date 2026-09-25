@@ -98,3 +98,7 @@
 	path = i-have-adhd
 	url = https://github.com/ayghri/i-have-adhd
 	branch = main
+[submodule "typesafe-ai"]
+	path = typesafe-ai
+	url = https://github.com/typesafe-ai/skills
+	branch = main
