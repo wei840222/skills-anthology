@@ -31,7 +31,7 @@ git submodule update --remote --merge
    - `./sync.py -i`：直接開啟空白鍵勾選清單。
 
 
-## Skills 列表 (共 25 個精選技能)
+## Skills 列表 (共 26 個精選技能)
 
 ### 🛠 工程與開發
 
@@ -42,6 +42,7 @@ git submodule update --remote --merge
 | [mattpocock-skills](https://github.com/mattpocock/skills) | `mattpocock-skills/skills` | Matt Pocock 的「Skills For Real Engineers」—— 可組合的小型技能（grill-me、TDD、domain modeling、code review、wayfinder） |
 | [ponytail](https://github.com/DietrichGebert/ponytail) | `ponytail/skills` | 懶惰資深工程師技能 —— 少寫 ~54% 程式碼，保留所有安全防護，使用 YAGNI 階梯（native > stdlib > dep > one line > minimum） |
 | [superpowers](https://github.com/obra/superpowers) | `superpowers/skills` | Prime Radiant 的 AI Agent 完整開發方法論 —— 包含 TDD、系統化排錯、腦力激盪、計畫撰寫與子 Agent 驅動開發等 14 個技能 |
+| [typesafe-ai](https://github.com/typesafe-ai/skills) | `typesafe-ai/skills/typesafe-ai` | TypeSafe 官方技能 —— 將 System One 模型（如 Jev）轉化為型別化決策與機率原語，用於路由、排名、擷取與結構化驗證 |
 
 ### 🎨 設計與圖表
 
