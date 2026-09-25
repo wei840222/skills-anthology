@@ -31,7 +31,7 @@ git submodule update --remote --merge
    - `./sync.py -i`：直接開啟空白鍵勾選清單。
 
 
-## Skills 列表 (共 24 個精選技能)
+## Skills 列表 (共 25 個精選技能)
 
 ### 🛠 工程與開發
 
@@ -68,6 +68,7 @@ git submodule update --remote --merge
 | [caveman](https://github.com/JuliusBrussee/caveman) | `caveman/skills` | 讓 AI 用原始人方式說話 —— 同樣的答案，減少 ~65% output tokens |
 | [darwin-skill](https://github.com/alchaincyf/darwin-skill) | `darwin-skill` | 自主實驗迴圈最佳化 agent 技能，含 9 維評分、棘輪機制與 human-in-the-loop |
 | [freud-skill](https://github.com/alchaincyf/freud-skill) | `freud-skill` | 弗洛伊德 AI 認知調優系統 —— 給 AI 做心理分析與認知治療，解決 Identity 衝突與 Prompt/Skill 深層毛病 |
+| [i-have-adhd](https://github.com/ayghri/i-have-adhd) | `i-have-adhd/skills/i-have-adhd` | ADHD 友善的 Agent 輸出規範 —— 抑制客套廢話（No 'Hope this helps!'），行動優先、步驟編號、精確時間預估與聚焦單一明確下一步 |
 | [nopua](https://github.com/wuji-labs/nopua) | `nopua` | 反 PUA 技能 —— 以信任取代恐懼驅動，benchmark 顯示比無技能多找 +104% 隱藏 bug |
 | [pua](https://github.com/tanweai/pua) | `pua/skills` | 用企業 PUA/PIP 話術（14 種風格：阿里、字節、Netflix、Musk、Jobs 等）逼迫 AI 窮盡所有方案 |
 
