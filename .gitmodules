@@ -102,3 +102,7 @@
 	path = typesafe-ai
 	url = https://github.com/typesafe-ai/skills
 	branch = main
+[submodule "hindsight-skills"]
+	path = hindsight-skills
+	url = https://github.com/vectorize-io/hindsight-skills
+	branch = main
