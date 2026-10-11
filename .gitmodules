@@ -106,3 +106,7 @@
 	path = hindsight-skills
 	url = https://github.com/vectorize-io/hindsight-skills
 	branch = main
+[submodule "skills-for-humanity"]
+	path = skills-for-humanity
+	url = https://github.com/human-avatar/skills-for-humanity
+	branch = main
