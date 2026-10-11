@@ -31,7 +31,7 @@ git submodule update --remote --merge
    - `./sync.py -i`：直接開啟空白鍵勾選清單。
 
 
-## Skills 列表 (共 27 個精選技能)
+## Skills 列表 (共 28 個精選技能)
 
 ### 🛠 工程與開發
 
@@ -61,6 +61,7 @@ git submodule update --remote --merge
 | [fable-method](https://github.com/Sahir619/fable-method) | `fable-method/skills` | Think/act/prove 工作流，源自 Claude Fable 5，含對抗性評估與 fable-judge 驗證器 |
 | [nuwa-skill](https://github.com/alchaincyf/nuwa-skill) | `nuwa-skill` | 將任何人的思維模型（Jobs、Musk、Munger、Feynman、Naval、PG 等）提煉為 agent 技能 |
 | [prompt-engineering-expert](https://github.com/TomsTools11/prompt-engineering-expert) | `prompt-engineering-expert` | 完整的 prompt 工程技能：分析、生成、自訂指令、進階技巧、排錯與評估框架 |
+| [skills-for-humanity](https://github.com/human-avatar/skills-for-humanity) | `skills-for-humanity/skills` | 歷史上嚴謹思想家的結構化思維方法層（s4h）—— 涵蓋 5 大集群、34 個領域、200+ 個思考與決策方法（邏輯、博弈論、決策、逆向思維、認知負荷、系統思考等） |
 
 ### 🤖 Agent 最佳化
 
