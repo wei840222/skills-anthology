@@ -31,18 +31,20 @@ git submodule update --remote --merge
    - `./sync.py -i`：直接開啟空白鍵勾選清單。
 
 
-## Skills 列表 (共 28 個精選技能)
+## Skills 列表 (共 30 個精選技能)
 
 ### 🛠 工程與開發
 
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
 | [agent-skills](https://github.com/addyosmani/agent-skills) | `agent-skills/skills` | Addy Osmani 的 24 個生產級工程技能，涵蓋完整開發生命週期（spec/plan/build/test/review/ship） |
+| [claude-skills](https://github.com/anthropics/skills) | `claude-skills/skills` | Anthropic 官方 Claude 技能庫 —— 包含文件處理（docx/pdf/pptx/xlsx）、MCP Builder、Web Artifacts、前端設計與測試等 19 個官方生產級技能 |
 | [go-modern-guidelines](https://github.com/JetBrains/go-modern-guidelines) | `go-modern-guidelines/plugin/skills/use-modern-go` | JetBrains 官方現代 Go 語言指南技能 —— 根據專案 Go 版本引導 Agent 撰寫符合 Go 1.0~1.27 最新慣用語法與標準庫特性的現代化程式碼 |
 | [mattpocock-skills](https://github.com/mattpocock/skills) | `mattpocock-skills/skills` | Matt Pocock 的「Skills For Real Engineers」—— 可組合的小型技能（grill-me、TDD、domain modeling、code review、wayfinder） |
 | [ponytail](https://github.com/DietrichGebert/ponytail) | `ponytail/skills` | 懶惰資深工程師技能 —— 少寫 ~54% 程式碼，保留所有安全防護，使用 YAGNI 階梯（native > stdlib > dep > one line > minimum） |
 | [superpowers](https://github.com/obra/superpowers) | `superpowers/skills` | Prime Radiant 的 AI Agent 完整開發方法論 —— 包含 TDD、系統化排錯、腦力激盪、計畫撰寫與子 Agent 驅動開發等 14 個技能 |
 | [typesafe-ai](https://github.com/typesafe-ai/skills) | `typesafe-ai/skills/typesafe-ai` | TypeSafe 官方技能 —— 將 System One 模型（如 Jev）轉化為型別化決策與機率原語，用於路由、排名、擷取與結構化驗證 |
+| [vercel-agent-skills](https://github.com/vercel-labs/agent-skills) | `vercel-agent-skills/skills` | Vercel 官方 AI Coding 技能庫 —— 涵蓋 React/Next.js 最佳實踐、Vercel 部署與效能/成本最佳化、Web 設計與無障礙稽核等技能 |
 
 ### 🎨 設計與圖表
 
