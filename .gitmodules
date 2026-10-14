@@ -110,3 +110,7 @@
 	path = skills-for-humanity
 	url = https://github.com/human-avatar/skills-for-humanity
 	branch = main
+[submodule "claude-skills"]
+	path = claude-skills
+	url = https://github.com/anthropics/skills.git
+	branch = main
