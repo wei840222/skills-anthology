@@ -114,3 +114,7 @@
 	path = claude-skills
 	url = https://github.com/anthropics/skills.git
 	branch = main
+[submodule "vercel-agent-skills"]
+	path = vercel-agent-skills
+	url = https://github.com/vercel-labs/agent-skills.git
+	branch = main
