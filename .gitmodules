@@ -130,3 +130,7 @@
 	path = archify
 	url = https://github.com/tt-a1i/archify.git
 	branch = main
+[submodule "graphify"]
+	path = graphify
+	url = https://github.com/Graphify-Labs/graphify.git
+	branch = v8
