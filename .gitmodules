@@ -126,3 +126,7 @@
 	path = impeccable
 	url = https://github.com/pbakaus/impeccable.git
 	branch = main
+[submodule "archify"]
+	path = archify
+	url = https://github.com/tt-a1i/archify.git
+	branch = main
