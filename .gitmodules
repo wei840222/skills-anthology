@@ -134,3 +134,7 @@
 	path = graphify
 	url = https://github.com/Graphify-Labs/graphify.git
 	branch = v8
+[submodule "ui-ux-pro-max-skill"]
+	path = ui-ux-pro-max-skill
+	url = https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git
+	branch = main
