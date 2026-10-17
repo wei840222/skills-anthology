@@ -138,3 +138,7 @@
 	path = ui-ux-pro-max-skill
 	url = https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git
 	branch = main
+[submodule "andrej-karpathy-skills"]
+	path = andrej-karpathy-skills
+	url = https://github.com/multica-ai/andrej-karpathy-skills.git
+	branch = main
