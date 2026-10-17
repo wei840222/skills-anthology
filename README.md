@@ -31,13 +31,14 @@ git submodule update --remote --merge
    - `./sync.py -i`：直接開啟空白鍵勾選清單。
 
 
-## Skills 列表 (共 30 個精選技能)
+## Skills 列表 (共 36 個精選技能)
 
 ### 🛠 工程與開發
 
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
 | [agent-skills](https://github.com/addyosmani/agent-skills) | `agent-skills/skills` | Addy Osmani 的 24 個生產級工程技能，涵蓋完整開發生命週期（spec/plan/build/test/review/ship） |
+| [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | `andrej-karpathy-skills/skills/karpathy-guidelines` | 源自 Andrej Karpathy 對 LLM 編程缺陷觀察的行為準則 —— 著重編碼前思考、極簡主義（Simplicity First）與精準修改（Surgical Changes） |
 | [claude-skills](https://github.com/anthropics/skills) | `claude-skills/skills` | Anthropic 官方 Claude 技能庫 —— 包含文件處理（docx/pdf/pptx/xlsx）、MCP Builder、Web Artifacts、前端設計與測試等 19 個官方生產級技能 |
 | [go-modern-guidelines](https://github.com/JetBrains/go-modern-guidelines) | `go-modern-guidelines/plugin/skills/use-modern-go` | JetBrains 官方現代 Go 語言指南技能 —— 根據專案 Go 版本引導 Agent 撰寫符合 Go 1.0~1.27 最新慣用語法與標準庫特性的現代化程式碼 |
 | [mattpocock-skills](https://github.com/mattpocock/skills) | `mattpocock-skills/skills` | Matt Pocock 的「Skills For Real Engineers」—— 可組合的小型技能（grill-me、TDD、domain modeling、code review、wayfinder） |
@@ -51,9 +52,12 @@ git submodule update --remote --merge
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
 | [architecture-diagram-generator](https://github.com/Cocoon-AI/architecture-diagram-generator) | `architecture-diagram-generator/architecture-diagram` | 將自然語言架構描述轉為暗色主題 HTML 圖表，支援 PNG/PDF 匯出 |
+| [archify](https://github.com/tt-a1i/archify) | `archify/archify` | 將任何想法、計畫或程式碼庫轉為美觀的互動式圖表 —— 支援 Claude Code、Codex 等 Agent，透過自然語言生成可點選探索的架構圖 |
 | [diagram-design](https://github.com/cathrynlavery/diagram-design) | `diagram-design/skills/diagram-design` | 編輯級品質圖表（27 種類型），讀取你的網站來適配品牌風格 |
 | [huashu-design](https://github.com/alchaincyf/huashu-design) | `huashu-design` | 一句話出設計 —— iOS 原型、HTML 簡報、動態圖形、資訊圖表、可編輯 PPTX |
 | [huashu-md-html](https://github.com/alchaincyf/huashu-md-html) | `huashu-md-html` | 花叔多向文件流水線 —— 支援任意檔案（PDF/DOCX/PPTX/XLSX/URL）與 Markdown/HTML/出版級 DOCX 無損互轉與視覺設計 |
+| [impeccable](https://github.com/pbakaus/impeccable) | `impeccable/.agents/skills/impeccable` | 專為 AI 設計的設計語言系統 —— 提供現代化 UI/UX 審美規則、視覺階層、留白與調色盤指引，大幅提升 Agent 前端設計品質 |
+| [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | `ui-ux-pro-max-skill/.claude/skills` | 跨平台專業 UI/UX 設計智慧技能 —— 內建 79 種 UI 風格、192 種產品調色盤、設計系統生成器與無障礙/動效規範 |
 
 ### 🧠 思考與方法論
 
@@ -81,14 +85,16 @@ git submodule update --remote --merge
 
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
+| [anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | `anysearch-skill` | 統一即時搜尋引擎技能 —— 支援通用網路搜尋、垂直領域搜尋、平行批次搜尋與完整網頁內容擷取 |
 | [book-to-skill](https://github.com/virgiliojr94/book-to-skill) | `book-to-skill` | 將技術書籍（PDF/EPUB/DOCX）轉為 on-demand agent 技能，節省 24–51× tokens |
+| [graphify](https://github.com/Graphify-Labs/graphify) | `graphify/graphify` | 將程式碼庫、文件、SQL 與配置轉化為可查詢的知識圖譜 —— 本地確定性 AST 解析、每條邊緣皆具語意說明、無須向量資料庫，降低 Agent 達 80% Token 消耗 |
 | [llm-wiki-skill](https://github.com/lewislulu/llm-wiki-skill) | `llm-wiki-skill/llm-wiki` | 建立與維護 Karpathy 風格的 LLM Markdown 知識庫（編譯原始資料、語意交叉連結、健康檢查與 Obsidian/Web 審計反饋） |
 | [obsidian-skills](https://github.com/kepano/obsidian-skills) | `obsidian-skills/skills` | kepano 的 Obsidian agent 技能：obsidian-markdown、obsidian-bases、json-canvas、obsidian-cli·defuddle |
-| [anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | `anysearch-skill` | 統一即時搜尋引擎技能 —— 支援通用網路搜尋、垂直領域搜尋、平行批次搜尋與完整網頁內容擷取 |
 
 ### 🌐 領域專用
 
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
+| [humanizer](https://github.com/blader/humanizer) | `humanizer` | 去除 AI 生成寫作痕跡技能 —— 偵測並移除過度對稱、說教語氣、套話與 AI 慣用句型，讓輸出更自然擬真 |
 | [kubernetes-skill](https://github.com/LukasNiessen/kubernetes-skill) | `kubernetes-skill` | 生產級 Kubernetes 技能，以 failure-mode-first 工作流防止幻覺 |
 | [speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw) | `speak-human-tw` | 繁體中文（台灣）去 AI 味改寫器 —— 偵測 35+ AI 寫作模式，修正中國用法，改寫成人類語氣 |
