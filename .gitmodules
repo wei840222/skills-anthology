@@ -122,3 +122,7 @@
 	path = humanizer
 	url = https://github.com/blader/humanizer.git
 	branch = main
+[submodule "impeccable"]
+	path = impeccable
+	url = https://github.com/pbakaus/impeccable.git
+	branch = main
