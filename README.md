@@ -31,7 +31,7 @@ git submodule update --remote --merge
    - `./sync.py -i`：直接開啟空白鍵勾選清單。
 
 
-## Skills 列表 (共 36 個精選技能)
+## Skills 列表 (共 37 個精選技能)
 
 ### 🛠 工程與開發
 
@@ -39,6 +39,7 @@ git submodule update --remote --merge
 |-------|----------|------|
 | [agent-skills](https://github.com/addyosmani/agent-skills) | `agent-skills/skills` | Addy Osmani 的 24 個生產級工程技能，涵蓋完整開發生命週期（spec/plan/build/test/review/ship） |
 | [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | `andrej-karpathy-skills/skills/karpathy-guidelines` | 源自 Andrej Karpathy 對 LLM 編程缺陷觀察的行為準則 —— 著重編碼前思考、極簡主義（Simplicity First）與精準修改（Surgical Changes） |
+| [better-harness](https://github.com/QoderAI/better-harness) | `better-harness/skills` | 開源 Coding Agent Harness 工程平台 —— 以程式碼定義 Harness、執行受控實驗、檢驗 Session 證據與比對成果，將執行歷程轉化為修復計畫與團隊洞察 |
 | [claude-skills](https://github.com/anthropics/skills) | `claude-skills/skills` | Anthropic 官方 Claude 技能庫 —— 包含文件處理（docx/pdf/pptx/xlsx）、MCP Builder、Web Artifacts、前端設計與測試等 19 個官方生產級技能 |
 | [go-modern-guidelines](https://github.com/JetBrains/go-modern-guidelines) | `go-modern-guidelines/plugin/skills/use-modern-go` | JetBrains 官方現代 Go 語言指南技能 —— 根據專案 Go 版本引導 Agent 撰寫符合 Go 1.0~1.27 最新慣用語法與標準庫特性的現代化程式碼 |
 | [mattpocock-skills](https://github.com/mattpocock/skills) | `mattpocock-skills/skills` | Matt Pocock 的「Skills For Real Engineers」—— 可組合的小型技能（grill-me、TDD、domain modeling、code review、wayfinder） |
