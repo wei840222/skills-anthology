@@ -142,7 +142,3 @@
 	path = andrej-karpathy-skills
 	url = https://github.com/multica-ai/andrej-karpathy-skills.git
 	branch = main
-[submodule "better-harness"]
-	path = better-harness
-	url = https://github.com/QoderAI/better-harness.git
-	branch = main
