@@ -31,7 +31,7 @@ git submodule update --remote --merge
    - `./sync.py -i`：直接開啟空白鍵勾選清單。
 
 
-## Skills 列表 (共 36 個精選技能)
+## Skills 列表 (共 40 個精選技能)
 
 ### 🛠 工程與開發
 
@@ -40,6 +40,7 @@ git submodule update --remote --merge
 | [agent-skills](https://github.com/addyosmani/agent-skills) | `agent-skills/skills` | Addy Osmani 的 24 個生產級工程技能，涵蓋完整開發生命週期（spec/plan/build/test/review/ship） |
 | [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | `andrej-karpathy-skills/skills/karpathy-guidelines` | 源自 Andrej Karpathy 對 LLM 編程缺陷觀察的行為準則 —— 著重編碼前思考、極簡主義（Simplicity First）與精準修改（Surgical Changes） |
 | [claude-skills](https://github.com/anthropics/skills) | `claude-skills/skills` | Anthropic 官方 Claude 技能庫 —— 包含文件處理（docx/pdf/pptx/xlsx）、MCP Builder、Web Artifacts、前端設計與測試等 19 個官方生產級技能 |
+| [cx](https://github.com/ind-igo/cx) | `cx/skills/cx` | 語意程式碼導航工具 —— 透過概覽、符號定義與參照追蹤探索大型程式碼庫，節省 Token 並加速架構理解 |
 | [go-modern-guidelines](https://github.com/JetBrains/go-modern-guidelines) | `go-modern-guidelines/plugin/skills/use-modern-go` | JetBrains 官方現代 Go 語言指南技能 —— 根據專案 Go 版本引導 Agent 撰寫符合 Go 1.0~1.27 最新慣用語法與標準庫特性的現代化程式碼 |
 | [mattpocock-skills](https://github.com/mattpocock/skills) | `mattpocock-skills/skills` | Matt Pocock 的「Skills For Real Engineers」—— 可組合的小型技能（grill-me、TDD、domain modeling、code review、wayfinder） |
 | [ponytail](https://github.com/DietrichGebert/ponytail) | `ponytail/skills` | 懶惰資深工程師技能 —— 少寫 ~54% 程式碼，保留所有安全防護，使用 YAGNI 階梯（native > stdlib > dep > one line > minimum） |
@@ -90,11 +91,14 @@ git submodule update --remote --merge
 | [graphify](https://github.com/Graphify-Labs/graphify) | `graphify/graphify` | 將程式碼庫、文件、SQL 與配置轉化為可查詢的知識圖譜 —— 本地確定性 AST 解析、每條邊緣皆具語意說明、無須向量資料庫，降低 Agent 達 80% Token 消耗 |
 | [llm-wiki-skill](https://github.com/lewislulu/llm-wiki-skill) | `llm-wiki-skill/llm-wiki` | 建立與維護 Karpathy 風格的 LLM Markdown 知識庫（編譯原始資料、語意交叉連結、健康檢查與 Obsidian/Web 審計反饋） |
 | [obsidian-skills](https://github.com/kepano/obsidian-skills) | `obsidian-skills/skills` | kepano 的 Obsidian agent 技能：obsidian-markdown、obsidian-bases、json-canvas、obsidian-cli·defuddle |
+| [qmd](https://github.com/wei840222/qmd) | `qmd/skills/qmd` | 本地 Markdown 知識庫、文件與筆記搜尋引擎 —— 透過 BM25、中文斷詞與 AST 切塊進行檢索與 MCP 整合 |
+| [treemd](https://github.com/Epistates/treemd) | `treemd/skills/treemd` | 樹狀結構 Markdown 文件分析與導航 CLI —— 支援結構導航、TQL 查詢與章節擷取，避免載入過多文件至 Context |
 
 ### 🌐 領域專用
 
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
+| [emo](https://github.com/wei840222/emo) | `emo/skills/emo` | Emoji 情緒分析 CLI 工具 —— 計算情緒加權分數、情緒強度、極性衝突與時間軸情緒演進 |
 | [humanizer](https://github.com/blader/humanizer) | `humanizer` | 去除 AI 生成寫作痕跡技能 —— 偵測並移除過度對稱、說教語氣、套話與 AI 慣用句型，讓輸出更自然擬真 |
 | [kubernetes-skill](https://github.com/LukasNiessen/kubernetes-skill) | `kubernetes-skill` | 生產級 Kubernetes 技能，以 failure-mode-first 工作流防止幻覺 |
 | [speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw) | `speak-human-tw` | 繁體中文（台灣）去 AI 味改寫器 —— 偵測 35+ AI 寫作模式，修正中國用法，改寫成人類語氣 |
