@@ -150,3 +150,7 @@
 	path = qmd
 	url = https://github.com/wei840222/qmd
 	branch = local
+[submodule "treemd"]
+	path = treemd
+	url = https://github.com/Epistates/treemd
+	branch = main
