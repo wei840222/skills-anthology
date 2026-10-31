@@ -142,3 +142,7 @@
 	path = andrej-karpathy-skills
 	url = https://github.com/multica-ai/andrej-karpathy-skills.git
 	branch = main
+[submodule "emo"]
+	path = emo
+	url = https://github.com/wei840222/emo
+	branch = main
