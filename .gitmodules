@@ -154,3 +154,7 @@
 	path = treemd
 	url = https://github.com/Epistates/treemd
 	branch = main
+[submodule "cx"]
+	path = cx
+	url = https://github.com/ind-igo/cx
+	branch = master
