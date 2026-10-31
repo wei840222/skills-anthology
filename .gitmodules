@@ -146,3 +146,7 @@
 	path = emo
 	url = https://github.com/wei840222/emo
 	branch = main
+[submodule "qmd"]
+	path = qmd
+	url = https://github.com/wei840222/qmd
+	branch = local
