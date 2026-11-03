@@ -158,3 +158,7 @@
 	path = cx
 	url = https://github.com/ind-igo/cx
 	branch = master
+[submodule "empathy"]
+	path = empathy
+	url = https://github.com/danielroe/empathy
+	branch = main
