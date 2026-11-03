@@ -31,7 +31,7 @@ git submodule update --remote --merge
    - `./sync.py -i`：直接開啟空白鍵勾選清單。
 
 
-## Skills 列表 (共 40 個精選技能)
+## Skills 列表 (共 41 個精選技能)
 
 ### 🛠 工程與開發
 
@@ -76,6 +76,7 @@ git submodule update --remote --merge
 |-------|----------|------|
 | [caveman](https://github.com/JuliusBrussee/caveman) | `caveman/skills` | 讓 AI 用原始人方式說話 —— 同樣的答案，減少 ~65% output tokens |
 | [darwin-skill](https://github.com/alchaincyf/darwin-skill) | `darwin-skill` | 自主實驗迴圈最佳化 agent 技能，含 9 維評分、棘輪機制與 human-in-the-loop |
+| [empathy](https://github.com/danielroe/empathy) | `empathy` | AI Agent 與人類溝通行為規範 —— 規範 PR/Issue/審查回覆與對話原則（誠實揭露身分、不偽裝人類、杜絕虛假經驗與無法兌現的承諾） |
 | [freud-skill](https://github.com/alchaincyf/freud-skill) | `freud-skill` | 弗洛伊德 AI 認知調優系統 —— 給 AI 做心理分析與認知治療，解決 Identity 衝突與 Prompt/Skill 深層毛病 |
 | [hindsight-skills](https://github.com/vectorize-io/hindsight-skills) | `hindsight-skills/skills` | Hindsight 官方 AI Agent 長期記憶技能 —— 提供記憶架構規劃（architect）、完整參考文件與升級工具，賦予 Agent 跨 Session 事實擷取、實體圖譜與心智模型建構能力 |
 | [i-have-adhd](https://github.com/ayghri/i-have-adhd) | `i-have-adhd/skills/i-have-adhd` | ADHD 友善的 Agent 輸出規範 —— 抑制客套廢話（No 'Hope this helps!'），行動優先、步驟編號、精確時間預估與聚焦單一明確下一步 |
