@@ -162,3 +162,7 @@
 	path = empathy
 	url = https://github.com/danielroe/empathy
 	branch = main
+[submodule "security-audit-skill"]
+	path = security-audit-skill
+	url = https://github.com/cloudflare/security-audit-skill.git
+	branch = main
