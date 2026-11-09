@@ -31,7 +31,7 @@ git submodule update --remote --merge
    - `./sync.py -i`：直接開啟空白鍵勾選清單。
 
 
-## Skills 列表 (共 41 個精選技能)
+## Skills 列表 (共 43 個精選技能)
 
 ### 🛠 工程與開發
 
@@ -44,6 +44,7 @@ git submodule update --remote --merge
 | [go-modern-guidelines](https://github.com/JetBrains/go-modern-guidelines) | `go-modern-guidelines/plugin/skills/use-modern-go` | JetBrains 官方現代 Go 語言指南技能 —— 根據專案 Go 版本引導 Agent 撰寫符合 Go 1.0~1.27 最新慣用語法與標準庫特性的現代化程式碼 |
 | [mattpocock-skills](https://github.com/mattpocock/skills) | `mattpocock-skills/skills` | Matt Pocock 的「Skills For Real Engineers」—— 可組合的小型技能（grill-me、TDD、domain modeling、code review、wayfinder） |
 | [ponytail](https://github.com/DietrichGebert/ponytail) | `ponytail/skills` | 懶惰資深工程師技能 —— 少寫 ~54% 程式碼，保留所有安全防護，使用 YAGNI 階梯（native > stdlib > dep > one line > minimum） |
+| [security-audit-skill](https://github.com/cloudflare/security-audit-skill) | `security-audit-skill/skills/security-audit` | Cloudflare 官方多階段資安審計技能 —— 為程式碼庫、API 與服務執行獨立可驗證、機器可讀的漏洞審查與安全防護評估 |
 | [superpowers](https://github.com/obra/superpowers) | `superpowers/skills` | Prime Radiant 的 AI Agent 完整開發方法論 —— 包含 TDD、系統化排錯、腦力激盪、計畫撰寫與子 Agent 驅動開發等 14 個技能 |
 | [typesafe-ai](https://github.com/typesafe-ai/skills) | `typesafe-ai/skills/typesafe-ai` | TypeSafe 官方技能 —— 將 System One 模型（如 Jev）轉化為型別化決策與機率原語，用於路由、排名、擷取與結構化驗證 |
 | [vercel-agent-skills](https://github.com/vercel-labs/agent-skills) | `vercel-agent-skills/skills` | Vercel 官方 AI Coding 技能庫 —— 涵蓋 React/Next.js 最佳實踐、Vercel 部署與效能/成本最佳化、Web 設計與無障礙稽核等技能 |
@@ -102,4 +103,5 @@ git submodule update --remote --merge
 | [emo](https://github.com/wei840222/emo) | `emo/skills/emo` | Emoji 情緒分析 CLI 工具 —— 計算情緒加權分數、情緒強度、極性衝突與時間軸情緒演進 |
 | [humanizer](https://github.com/blader/humanizer) | `humanizer` | 去除 AI 生成寫作痕跡技能 —— 偵測並移除過度對稱、說教語氣、套話與 AI 慣用句型，讓輸出更自然擬真 |
 | [kubernetes-skill](https://github.com/LukasNiessen/kubernetes-skill) | `kubernetes-skill` | 生產級 Kubernetes 技能，以 failure-mode-first 工作流防止幻覺 |
+| [sepia](https://github.com/Nanako0129/sepia) | `sepia/skills` | 基於 StoryScope 的去 AI 味寫作技能 —— 支援虛構故事敘事架構修復與專業散文（PR/Issue/公告/復盤）領域規則，包含 write、review、refactor、recreate 四種操作 |
 | [speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw) | `speak-human-tw` | 繁體中文（台灣）去 AI 味改寫器 —— 偵測 35+ AI 寫作模式，修正中國用法，改寫成人類語氣 |
