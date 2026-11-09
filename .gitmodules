@@ -166,3 +166,7 @@
 	path = security-audit-skill
 	url = https://github.com/cloudflare/security-audit-skill.git
 	branch = main
+[submodule "sepia"]
+	path = sepia
+	url = https://github.com/Nanako0129/sepia.git
+	branch = main
