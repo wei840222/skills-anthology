@@ -31,7 +31,7 @@ git submodule update --remote --merge
    - `./sync.py -i`：直接開啟空白鍵勾選清單。
 
 
-## Skills 列表 (共 43 個精選技能)
+## Skills 列表 (共 44 個精選技能)
 
 ### 🛠 工程與開發
 
@@ -45,6 +45,7 @@ git submodule update --remote --merge
 | [mattpocock-skills](https://github.com/mattpocock/skills) | `mattpocock-skills/skills` | Matt Pocock 的「Skills For Real Engineers」—— 可組合的小型技能（grill-me、TDD、domain modeling、code review、wayfinder） |
 | [ponytail](https://github.com/DietrichGebert/ponytail) | `ponytail/skills` | 懶惰資深工程師技能 —— 少寫 ~54% 程式碼，保留所有安全防護，使用 YAGNI 階梯（native > stdlib > dep > one line > minimum） |
 | [security-audit-skill](https://github.com/cloudflare/security-audit-skill) | `security-audit-skill/skills/security-audit` | Cloudflare 官方多階段資安審計技能 —— 為程式碼庫、API 與服務執行獨立可驗證、機器可讀的漏洞審查與安全防護評估 |
+| [strix](https://github.com/usestrix/strix) | `strix/skills` | 開源 AI 滲透測試與漏洞防禦技能庫 —— 涵蓋 Web/API 滲透測試、OWASP Top 10 驗證、CI 安全掃描與程式碼漏洞自動修復等 9 個專業資安技能 |
 | [superpowers](https://github.com/obra/superpowers) | `superpowers/skills` | Prime Radiant 的 AI Agent 完整開發方法論 —— 包含 TDD、系統化排錯、腦力激盪、計畫撰寫與子 Agent 驅動開發等 14 個技能 |
 | [typesafe-ai](https://github.com/typesafe-ai/skills) | `typesafe-ai/skills/typesafe-ai` | TypeSafe 官方技能 —— 將 System One 模型（如 Jev）轉化為型別化決策與機率原語，用於路由、排名、擷取與結構化驗證 |
 | [vercel-agent-skills](https://github.com/vercel-labs/agent-skills) | `vercel-agent-skills/skills` | Vercel 官方 AI Coding 技能庫 —— 涵蓋 React/Next.js 最佳實踐、Vercel 部署與效能/成本最佳化、Web 設計與無障礙稽核等技能 |
