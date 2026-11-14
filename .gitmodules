@@ -174,3 +174,7 @@
 	path = strix
 	url = https://github.com/usestrix/strix.git
 	branch = main
+[submodule "cursor-plugins"]
+	path = cursor-plugins
+	url = https://github.com/cursor/plugins.git
+	branch = main
