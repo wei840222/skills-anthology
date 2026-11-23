@@ -11,6 +11,9 @@ git clone --recurse-submodules https://github.com/wei840222/skills-anthology.git
 # 更新所有 submodule 到最新
 git submodule update --remote --merge
 
+# 驗證 README.md 技能路徑與目標目錄軟連結是否有效 (建議每次更新 submodule 後執行)
+./sync.py --check
+
 # 同步 / 建立技能軟連結 (互動式工具)
 ./sync.py
 
@@ -29,6 +32,7 @@ git submodule update --remote --merge
 3. **快捷參數**：
    - `./sync.py -a`：直接全部同步（略過詢問）。
    - `./sync.py -i`：直接開啟空白鍵勾選清單。
+   - `./sync.py -c` / `--check`：只讀驗證 `README.md` 所有技能路徑是否存在且含 `SKILL.md`，並檢查目標目錄是否有指向本 repo 的失效或過期軟連結（異常時回傳 exit code `1`）。
 
 
 ## Skills 列表 (共 45 個精選技能)
@@ -37,7 +41,7 @@ git submodule update --remote --merge
 
 | Skill | 技能路徑 | 說明 |
 |-------|----------|------|
-| [agent-skills](https://github.com/addyosmani/agent-skills) | `agent-skills/skills` | Addy Osmani 的 24 個生產級工程技能，涵蓋完整開發生命週期（spec/plan/build/test/review/ship） |
+| [agent-skills](https://github.com/addyosmani/agent-skills) | `agent-skills/skills` | Addy Osmani 的 26 個生產級工程技能，涵蓋完整開發生命週期（spec/plan/build/test/review/ship）與無障礙工程 |
 | [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | `andrej-karpathy-skills/skills/karpathy-guidelines` | 源自 Andrej Karpathy 對 LLM 編程缺陷觀察的行為準則 —— 著重編碼前思考、極簡主義（Simplicity First）與精準修改（Surgical Changes） |
 | [claude-skills](https://github.com/anthropics/skills) | `claude-skills/skills` | Anthropic 官方 Claude 技能庫 —— 包含文件處理（docx/pdf/pptx/xlsx）、MCP Builder、Web Artifacts、前端設計與測試等 19 個官方生產級技能 |
 | [cx](https://github.com/ind-igo/cx) | `cx/skills/cx` | 語意程式碼導航工具 —— 透過概覽、符號定義與參照追蹤探索大型程式碼庫，節省 Token 並加速架構理解 |
@@ -94,7 +98,7 @@ git submodule update --remote --merge
 | [book-to-skill](https://github.com/virgiliojr94/book-to-skill) | `book-to-skill` | 將技術書籍（PDF/EPUB/DOCX）轉為 on-demand agent 技能，節省 24–51× tokens |
 | [graphify](https://github.com/Graphify-Labs/graphify) | `graphify/graphify` | 將程式碼庫、文件、SQL 與配置轉化為可查詢的知識圖譜 —— 本地確定性 AST 解析、每條邊緣皆具語意說明、無須向量資料庫，降低 Agent 達 80% Token 消耗 |
 | [llm-wiki-skill](https://github.com/lewislulu/llm-wiki-skill) | `llm-wiki-skill/llm-wiki` | 建立與維護 Karpathy 風格的 LLM Markdown 知識庫（編譯原始資料、語意交叉連結、健康檢查與 Obsidian/Web 審計反饋） |
-| [obsidian-skills](https://github.com/kepano/obsidian-skills) | `obsidian-skills/skills` | kepano 的 Obsidian agent 技能：obsidian-markdown、obsidian-bases、json-canvas、obsidian-cli·defuddle |
+| [obsidian-skills](https://github.com/kepano/obsidian-skills) | `obsidian-skills/plugins/obsidian/skills` | kepano 的 Obsidian agent 技能：obsidian-markdown、obsidian-bases、json-canvas、obsidian-cli、obsidian-headless、defuddle、knap |
 | [qmd](https://github.com/wei840222/qmd) | `qmd/skills/qmd` | 本地 Markdown 知識庫、文件與筆記搜尋引擎 —— 透過 BM25、中文斷詞與 AST 切塊進行檢索與 MCP 整合 |
 | [treemd](https://github.com/Epistates/treemd) | `treemd/skills/treemd` | 樹狀結構 Markdown 文件分析與導航 CLI —— 支援結構導航、TQL 查詢與章節擷取，避免載入過多文件至 Context |
 

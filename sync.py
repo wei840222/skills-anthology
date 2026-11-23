@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 # ==============================================================================
 # AI Agent Skills Synchronization Script (sync.py)
-# Description: Scans README.md for skill paths and symlinks them to target directory.
-#              Supports interactive checkbox selection with Space key.
+# Description: Scans README.md for skill paths, validates them, and symlinks
+#              them to the target directory. Supports interactive checkbox
+#              selection with Space key and read-only validation (--check).
 # ==============================================================================
 
 import os
@@ -31,6 +32,7 @@ ALT_SCREEN_OFF = '\033[?1049l'
 CLEAR_SCREEN = '\033[H\033[2J'
 
 DEFAULT_TARGET = os.path.expanduser("~/.openclaw/external-skills")
+IGNORED_WALK_DIRS = {'.git', 'node_modules', '__pycache__', '.venv', 'venv'}
 
 def get_char_width(ch):
     """Return terminal column width of a character."""
@@ -66,8 +68,59 @@ def truncate_string(s, max_width):
         cur_width += w
     return "".join(res)
 
+def has_skill_markdown(abs_dir, max_depth=5):
+    """Return True if abs_dir contains at least one SKILL.md/skill.md within max_depth."""
+    base_depth = abs_dir.rstrip(os.sep).count(os.sep)
+    for root, dirs, files in os.walk(abs_dir):
+        dirs[:] = [d for d in dirs if d not in IGNORED_WALK_DIRS]
+        if any(f.lower() == "skill.md" for f in files):
+            return True
+        depth = root.rstrip(os.sep).count(os.sep) - base_depth
+        if depth >= max_depth:
+            dirs[:] = []
+    return False
+
+def find_candidate_skill_roots(repo_root, rel_path, max_depth=5):
+    """Suggest candidate skill paths inside the same submodule when a README path is missing."""
+    top_dir = rel_path.split("/", 1)[0]
+    sub_root = os.path.join(repo_root, top_dir)
+    if not os.path.isdir(sub_root):
+        return []
+
+    skill_dirs = []
+    base_depth = sub_root.rstrip(os.sep).count(os.sep)
+    for root, dirs, files in os.walk(sub_root):
+        dirs[:] = sorted(d for d in dirs if d not in IGNORED_WALK_DIRS)
+        if any(f.lower() == "skill.md" for f in files):
+            skill_dirs.append(os.path.relpath(root, repo_root))
+            dirs[:] = []
+            continue
+        depth = root.rstrip(os.sep).count(os.sep) - base_depth
+        if depth >= max_depth:
+            dirs[:] = []
+
+    if not skill_dirs:
+        return []
+
+    if len(skill_dirs) == 1:
+        return skill_dirs
+
+    # Group sibling skill directories under their shared parent (e.g. plugins/obsidian/skills)
+    parent_counts = {}
+    for sd in skill_dirs:
+        parent = os.path.dirname(sd)
+        parent_counts[parent] = parent_counts.get(parent, 0) + 1
+
+    candidates = []
+    for parent, count in sorted(parent_counts.items(), key=lambda kv: (-kv[1], kv[0])):
+        if count > 1 and parent:
+            candidates.append(parent)
+    if not candidates:
+        candidates = skill_dirs[:3]
+    return candidates[:3]
+
 def parse_readme(repo_root):
-    """Parse README.md to extract all skills with metadata."""
+    """Parse README.md to extract all skills and report invalid/missing paths."""
     readme_path = os.path.join(repo_root, "README.md")
     if not os.path.exists(readme_path):
         print(f"{RED}錯誤：在 {repo_root} 中找不到 README.md！{RESET}")
@@ -78,8 +131,10 @@ def parse_readme(repo_root):
 
     current_category = "其他"
     skills = []
+    issues = []
+    seen_names = set()
 
-    for line in lines:
+    for line_no, line in enumerate(lines, 1):
         stripped = line.strip()
         if stripped.startswith("### "):
             current_category = stripped[4:].strip()
@@ -94,16 +149,138 @@ def parse_readme(repo_root):
                     s_url = name_m.group(2)
                     s_path = path_m.group(1)
                     abs_p = os.path.join(repo_root, s_path)
-                    if os.path.exists(abs_p):
-                        skills.append({
-                            "name": s_name,
-                            "url": s_url,
-                            "path": s_path,
-                            "desc": desc,
-                            "category": current_category
-                        })
 
-    return skills
+                    if s_name in seen_names:
+                        issues.append({
+                            "kind": "duplicate_name",
+                            "line": line_no,
+                            "name": s_name,
+                            "path": s_path,
+                            "suggestions": []
+                        })
+                        continue
+                    seen_names.add(s_name)
+
+                    if not os.path.exists(abs_p):
+                        issues.append({
+                            "kind": "missing_path",
+                            "line": line_no,
+                            "name": s_name,
+                            "path": s_path,
+                            "suggestions": find_candidate_skill_roots(repo_root, s_path)
+                        })
+                        continue
+
+                    if not os.path.isdir(abs_p):
+                        issues.append({
+                            "kind": "not_directory",
+                            "line": line_no,
+                            "name": s_name,
+                            "path": s_path,
+                            "suggestions": []
+                        })
+                        continue
+
+                    if not has_skill_markdown(abs_p):
+                        issues.append({
+                            "kind": "no_skill_md",
+                            "line": line_no,
+                            "name": s_name,
+                            "path": s_path,
+                            "suggestions": find_candidate_skill_roots(repo_root, s_path)
+                        })
+                        continue
+
+                    skills.append({
+                        "name": s_name,
+                        "url": s_url,
+                        "path": s_path,
+                        "desc": desc,
+                        "category": current_category
+                    })
+
+    return skills, issues
+
+def inspect_target_symlinks(target_dir, repo_root, valid_skills):
+    """Inspect target_dir for broken or drifted symlinks pointing into repo_root."""
+    broken = []
+    drifted = []
+    if not os.path.isdir(target_dir):
+        return broken, drifted
+
+    repo_root_real = os.path.realpath(repo_root)
+    valid_by_name = {item["name"]: item for item in valid_skills}
+
+    for entry in sorted(os.listdir(target_dir)):
+        entry_path = os.path.join(target_dir, entry)
+        if not os.path.islink(entry_path):
+            continue
+
+        raw_target = os.readlink(entry_path)
+        resolved_target = os.path.abspath(os.path.join(target_dir, raw_target))
+        try:
+            in_repo = os.path.commonpath([repo_root_real, resolved_target]) == repo_root_real
+        except ValueError:
+            in_repo = False
+
+        if not os.path.exists(entry_path):
+            broken.append({
+                "name": entry,
+                "path": entry_path,
+                "target": raw_target,
+                "in_repo": in_repo
+            })
+        elif in_repo and entry in valid_by_name:
+            expected_abs = os.path.join(repo_root_real, valid_by_name[entry]["path"])
+            if os.path.realpath(resolved_target) != os.path.realpath(expected_abs):
+                drifted.append({
+                    "name": entry,
+                    "path": entry_path,
+                    "current": raw_target,
+                    "expected": expected_abs
+                })
+
+    return broken, drifted
+
+def print_readme_issues(issues):
+    """Print README.md path validation warnings."""
+    if not issues:
+        return
+    print(f"{RED}{BOLD}  [!] 發現 {len(issues)} 個 README.md 技能路徑異常：{RESET}")
+    for issue in issues:
+        kind = issue["kind"]
+        line = issue["line"]
+        name = issue["name"]
+        path = issue["path"]
+        if kind == "missing_path":
+            msg = "路徑不存在（可能上游目錄已重組）"
+        elif kind == "not_directory":
+            msg = "目標不是目錄"
+        elif kind == "no_skill_md":
+            msg = "目錄下找不到任何 SKILL.md / skill.md"
+        elif kind == "duplicate_name":
+            msg = "技能名稱重複"
+        else:
+            msg = kind
+        print(f"    {RED}✗{RESET} README.md:{line} {BOLD}{name}{RESET} (`{path}`): {msg}")
+        if issue["suggestions"]:
+            joined = ", ".join(f"`{s}`" for s in issue["suggestions"])
+            print(f"      {YELLOW}↳ 候選路徑:{RESET} {joined}")
+    print()
+
+def print_symlink_issues(broken, drifted):
+    """Print broken or drifted symlink warnings in target_dir."""
+    if broken:
+        print(f"{RED}{BOLD}  [!] 目標目錄發現 {len(broken)} 個失效軟連結：{RESET}")
+        for item in broken:
+            tag = "本 repo" if item["in_repo"] else "外部"
+            print(f"    {RED}✗{RESET} {item['name']} -> {item['target']} ({tag})")
+    if drifted:
+        print(f"{YELLOW}{BOLD}  [!] 目標目錄發現 {len(drifted)} 個與 README.md 不一致的軟連結：{RESET}")
+        for item in drifted:
+            print(f"    {YELLOW}!{RESET} {item['name']}: 目前指向 {item['current']}，應指向 {item['expected']}")
+    if broken or drifted:
+        print()
 
 def read_key(fd):
     """Read a single keypress or ANSI escape sequence from stdin file descriptor."""
@@ -198,7 +375,6 @@ def interactive_checkbox_selector(skills):
 
             # Header
             header_title = " AI Agent Skills 互動勾選清單 (按 Space 勾選) "
-            sep_line = "=" * min(cols, 80)
             buf.append(f"{CYAN}{BOLD}{header_title.center(min(cols, 80), '=')}{RESET}\r\n")
             buf.append(f"  {BOLD}操作指南：{RESET} [↑/↓ 或 j/k] 移動 | [空白鍵 Space] 勾選/取消 | [a] 全選/全取消\r\n")
             buf.append(f"            [i] 反選 | [Enter] 確認並開始同步 | [q / Esc] 取消並退出\r\n")
@@ -313,6 +489,32 @@ def interactive_checkbox_selector(skills):
 
     return [skills[i] for i in sorted(selected_indices)]
 
+def run_check(repo_root, cli_target):
+    """Read-only validation of README.md skill paths and target directory symlinks."""
+    print(f"驗證 {BOLD}README.md{RESET} 技能路徑與軟連結狀態...")
+    skills, issues = parse_readme(repo_root)
+    print(f"  {GREEN}➜ README.md 有效技能目錄:{RESET} {len(skills)} 個")
+    print_readme_issues(issues)
+
+    target_dir = os.path.abspath(os.path.expanduser(cli_target if cli_target else DEFAULT_TARGET))
+    broken, drifted = ([], [])
+    if os.path.isdir(target_dir):
+        print(f"檢查目標目錄軟連結: {BOLD}{target_dir}{RESET}")
+        broken, drifted = inspect_target_symlinks(target_dir, repo_root, skills)
+        if not broken and not drifted:
+            print(f"  {GREEN}➜ 目標目錄所有軟連結皆有效且與 README.md 一致。{RESET}\n")
+        else:
+            print_symlink_issues(broken, drifted)
+    elif cli_target:
+        print(f"  {YELLOW}➜ 目標目錄不存在（略過軟連結檢查）:{RESET} {target_dir}\n")
+
+    if issues or broken or drifted:
+        print(f"{RED}{BOLD}驗證失敗：請修復上述異常後再重新執行 ./sync.py --check。{RESET}")
+        sys.exit(1)
+
+    print(f"{GREEN}{BOLD}驗證通過：所有技能路徑與軟連結均正常。{RESET}")
+    sys.exit(0)
+
 def run_sync():
     # Resolve repository root
     repo_root = os.path.dirname(os.path.abspath(__file__))
@@ -322,26 +524,34 @@ def run_sync():
     cli_target = None
     force_all = False
     force_interactive = False
+    check_only = False
 
     for arg in sys.argv[1:]:
         if arg in ('-a', '--all'):
             force_all = True
         elif arg in ('-i', '--interactive'):
             force_interactive = True
+        elif arg in ('-c', '--check'):
+            check_only = True
         elif arg in ('-h', '--help'):
             print(f"{BOLD}使用方式:{RESET}")
             print(f"  ./sync.py [目標目錄] [選項]")
             print(f"\n{BOLD}選項:{RESET}")
             print(f"  -a, --all          直接同步所有技能，不詢問")
             print(f"  -i, --interactive  直接進入空白鍵勾選清單")
+            print(f"  -c, --check        只讀驗證 README.md 路徑與目標目錄軟連結（異常回傳 1）")
             print(f"  -h, --help         顯示說明訊息")
             print(f"\n{BOLD}範例:{RESET}")
             print(f"  ./sync.py")
+            print(f"  ./sync.py --check")
             print(f"  ./sync.py ~/.openclaw/external-skills")
             print(f"  ./sync.py ~/.openclaw/external-skills -i")
             sys.exit(0)
         elif not arg.startswith('-'):
             cli_target = arg
+
+    if check_only:
+        run_check(repo_root, cli_target)
 
     print(f"{CYAN}{BOLD}===================================================={RESET}")
     print(f"{CYAN}{BOLD}      AI Agent Skills Auto Symlink Sync Tool        {RESET}")
@@ -367,13 +577,15 @@ def run_sync():
 
     # Parse README.md
     print(f"解析 {BOLD}README.md{RESET} 獲取技能目錄清單...")
-    skills = parse_readme(repo_root)
+    skills, issues = parse_readme(repo_root)
     total_skills = len(skills)
     if total_skills == 0:
+        print_readme_issues(issues)
         print(f"{RED}在 README.md 中找不到有效的技能目錄！{RESET}")
         sys.exit(1)
 
-    print(f"  {GREEN}➜ 成功解析 {total_skills} 個技能目錄項目。{RESET}\n")
+    print(f"  {GREEN}➜ 成功解析 {total_skills} 個有效技能目錄項目。{RESET}\n")
+    print_readme_issues(issues)
 
     # Step 2: Synchronization Mode
     selected_skills = []
@@ -418,6 +630,10 @@ def run_sync():
         src = os.path.join(repo_root, item["path"])
         dest = os.path.join(target_dir, item["name"])
 
+        if not os.path.isdir(src):
+            print(f"  [{RED}✗{RESET}] 略過無效來源目錄: {item['path']}")
+            continue
+
         # Remove existing symlink or file/directory
         if os.path.islink(dest) or os.path.exists(dest):
             if os.path.islink(dest) or os.path.isfile(dest):
@@ -428,6 +644,17 @@ def run_sync():
         os.symlink(src, dest)
         print(f"  [{GREEN}✓{RESET}] {item['path']} {CYAN}->{RESET} {dest}")
         success_count += 1
+
+    broken, drifted = inspect_target_symlinks(target_dir, repo_root, skills)
+    if broken or drifted:
+        print()
+        print_symlink_issues(broken, drifted)
+
+    if issues or broken:
+        print(f"\n{YELLOW}{BOLD}===================================================={RESET}")
+        print(f"{YELLOW}{BOLD}  已完成 {success_count} 個有效軟連結，但偵測到上述異常！{RESET}")
+        print(f"{YELLOW}{BOLD}===================================================={RESET}\n")
+        sys.exit(1)
 
     print(f"\n{GREEN}{BOLD}===================================================={RESET}")
     print(f"{GREEN}{BOLD}  同步完成！已成功建立/更新 {success_count} 個技能軟連結。{RESET}")
