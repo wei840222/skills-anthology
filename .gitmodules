@@ -178,3 +178,7 @@
 	path = cursor-plugins
 	url = https://github.com/cursor/plugins.git
 	branch = main
+[submodule "hermes-agent"]
+	path = hermes-agent
+	url = https://github.com/NousResearch/hermes-agent.git
+	branch = main

@@ -35,7 +35,7 @@ git submodule update --remote --merge
    - `./sync.py -c` / `--check`：只讀驗證 `README.md` 所有技能路徑是否存在且含 `SKILL.md`，並檢查目標目錄是否有指向本 repo 的失效或過期軟連結（異常時回傳 exit code `1`）。
 
 
-## Skills 列表 (共 45 個精選技能)
+## Skills 列表 (共 47 個精選項目)
 
 ### 🛠 工程與開發
 
@@ -85,6 +85,8 @@ git submodule update --remote --merge
 | [darwin-skill](https://github.com/alchaincyf/darwin-skill) | `darwin-skill` | 自主實驗迴圈最佳化 agent 技能，含 9 維評分、棘輪機制與 human-in-the-loop |
 | [empathy](https://github.com/danielroe/empathy) | `empathy` | AI Agent 與人類溝通行為規範 —— 規範 PR/Issue/審查回覆與對話原則（誠實揭露身分、不偽裝人類、杜絕虛假經驗與無法兌現的承諾） |
 | [freud-skill](https://github.com/alchaincyf/freud-skill) | `freud-skill` | 弗洛伊德 AI 認知調優系統 —— 給 AI 做心理分析與認知治療，解決 Identity 衝突與 Prompt/Skill 深層毛病 |
+| [hermes-agent-skills](https://github.com/NousResearch/hermes-agent/tree/main/skills) | `hermes-agent/skills` | Nous Research 的 Hermes Agent 內建技能集，涵蓋軟體開發、DevOps、研究與生產力工具 |
+| [hermes-agent-optional-skills](https://github.com/NousResearch/hermes-agent/tree/main/optional-skills) | `hermes-agent/optional-skills` | Hermes Agent 可依需求選用的擴充技能集，涵蓋 MCP、資料科學、機器學習維運與智慧家庭 |
 | [hindsight-skills](https://github.com/vectorize-io/hindsight-skills) | `hindsight-skills/skills` | Hindsight 官方 AI Agent 長期記憶技能 —— 提供記憶架構規劃（architect）、完整參考文件與升級工具，賦予 Agent 跨 Session 事實擷取、實體圖譜與心智模型建構能力 |
 | [i-have-adhd](https://github.com/ayghri/i-have-adhd) | `i-have-adhd/skills/i-have-adhd` | ADHD 友善的 Agent 輸出規範 —— 抑制客套廢話（No 'Hope this helps!'），行動優先、步驟編號、精確時間預估與聚焦單一明確下一步 |
 | [nopua](https://github.com/wuji-labs/nopua) | `nopua` | 反 PUA 技能 —— 以信任取代恐懼驅動，benchmark 顯示比無技能多找 +104% 隱藏 bug |
